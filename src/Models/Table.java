@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Employees;
+package Models;
 
 /**
  *
  * @author pc ready
  */
-public class WaiterChief {
+public class Table {
     
 }

@@ -1,0 +1,15 @@
+{
+
+	"daySeconds" : "30",
+	"maxAppetizer" : "20",
+	"maxMain" : "30",
+	"maxDessert" : "10",
+	"initACook" : "1",
+	"initMCook" : "2",
+	"initDCook" : "0",
+	"maxACook" : "3",
+	"maxMCook" : "4" ,
+	"maxDCook" : "2" ,
+	"initWaiter" : "1",
+	"maxWaiter" : "6" 
+}

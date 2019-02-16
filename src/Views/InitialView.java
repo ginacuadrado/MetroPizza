@@ -118,7 +118,7 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel12.setText("Number of Appetizer Cooks:");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(250, 410, 220, 14);
+        jLabel12.setBounds(250, 410, 220, 16);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel13);
@@ -216,7 +216,7 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel23.setText("jLabel23");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(200, 120, 40, 14);
+        jLabel23.setBounds(200, 120, 48, 16);
 
         jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 48)); // NOI18N
         jLabel24.setText("COOKS");
@@ -225,15 +225,15 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel25.setText("WAITERS");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(1360, 350, 150, 14);
+        jLabel25.setBounds(1360, 350, 150, 16);
 
         jLabel26.setText("MANAGER");
         getContentPane().add(jLabel26);
-        jLabel26.setBounds(1190, 720, 100, 14);
+        jLabel26.setBounds(1190, 720, 100, 16);
 
         jLabel27.setText("CHIEF WAITER");
         getContentPane().add(jLabel27);
-        jLabel27.setBounds(1580, 710, 130, 14);
+        jLabel27.setBounds(1580, 710, 130, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

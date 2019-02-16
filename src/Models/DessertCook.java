@@ -1,4 +1,5 @@
-package Employees;
+
+package Models;
 
 public class DessertCook extends Thread {
     

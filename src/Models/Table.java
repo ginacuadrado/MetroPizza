@@ -1,14 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Models;
 
-/**
- *
- * @author pc ready
- */
 public class Table {
     
+    private int[] table;    //Shared array 
+    private int max;        //Maximum number of plates in the table
+    private int in=0,out=0; 
+    //Constructor
+    public Table(int max)
+    {
+        this.max= max;
+        this.table= new int[max];  
+    }
+
+    //Get the maximum number of plates in the table
+    public int getMax() 
+    {
+        return max;
+    }
+
 }

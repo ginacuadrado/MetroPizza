@@ -1,6 +1,26 @@
 
 package Models;
 
-public class AppetizerCook extends Thread {
+import java.util.concurrent.Semaphore;
+
+public class AppetizerCook  extends Thread {
     
-}
+    private Table table;
+    //private Semaphore sema1, sema2, sema3;
+    private int time;
+    private boolean hired;
+    
+    public AppetizerCook(Table table, int time, boolean hired, int type){
+        this.table = table;
+        this.time = time;
+        this.hired = hired;
+    }
+    
+    @Override 
+        public void run(){
+            while(this.hired){
+                
+                }
+            }
+        }
+

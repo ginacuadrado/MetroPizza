@@ -5,15 +5,12 @@
  */
 package Views;
 
-/**
- *
- * @author pc ready
- */
+import Models.Restaurant;
+
 public class InitialView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InitialView
-     */
+    private Restaurant res = new Restaurant();
+    
     public InitialView() {
         initComponents();
     }
@@ -27,11 +24,13 @@ public class InitialView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel39 = new javax.swing.JLabel();
+        TimeLabel = new javax.swing.JLabel();
+        CloseButton = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -39,6 +38,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -49,29 +49,63 @@ public class InitialView extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        AppetFire1 = new javax.swing.JButton();
+        AppetHire = new javax.swing.JButton();
+        MainHire = new javax.swing.JButton();
+        MainFire = new javax.swing.JButton();
+        DessertHire = new javax.swing.JButton();
+        DessertFire = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        WaiterHire = new javax.swing.JButton();
+        WaiterFire = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MetroPizza");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setBounds(new java.awt.Rectangle(900, 900, 900, 900));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusCycleRoot(false);
         setIconImages(null);
         setMaximumSize(new java.awt.Dimension(1000, 1000));
         setPreferredSize(new java.awt.Dimension(1800, 1000));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        jLabel39.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel39.setText("Current Status:");
+        getContentPane().add(jLabel39);
+        jLabel39.setBounds(1130, 760, 340, 30);
+
+        TimeLabel.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
+        TimeLabel.setForeground(new java.awt.Color(255, 255, 255));
+        TimeLabel.setText("TIME TO CLOSE:");
+        getContentPane().add(TimeLabel);
+        TimeLabel.setBounds(80, 80, 370, 60);
+
+        CloseButton.setBackground(new java.awt.Color(197, 50, 79));
+        CloseButton.setForeground(new java.awt.Color(255, 255, 255));
+        CloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ExitIcon.png"))); // NOI18N
+        CloseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CloseButton);
+        CloseButton.setBounds(1720, 10, 60, 50);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
@@ -87,10 +121,6 @@ public class InitialView extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PizzaIcon.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(90, 540, 300, 230);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ExitIcon.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(1700, 0, 90, 140);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -110,15 +140,21 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WaiterIcon.png"))); // NOI18N
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(1000, 410, 128, 170);
+        jLabel10.setBounds(1000, 380, 160, 210);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WaiterChiefIcon.png"))); // NOI18N
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(1430, 690, 180, 240);
+        jLabel11.setBounds(1400, 690, 180, 240);
 
-        jLabel12.setText("Number of Appetizer Cooks:");
+        jLabel12.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel12.setText("Number of Main Dishes Available:");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(250, 410, 220, 16);
+        jLabel12.setBounds(240, 660, 360, 30);
+
+        jLabel25.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel25.setText("Number of Appetizer Cooks:");
+        getContentPane().add(jLabel25);
+        jLabel25.setBounds(240, 400, 340, 30);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel13);
@@ -150,117 +186,223 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(1390, 700, 10, 210);
+        jLabel20.setBounds(1360, 700, 10, 210);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel21);
-        jLabel21.setBounds(1150, 660, 628, 10);
+        jLabel21.setBounds(1150, 650, 650, 10);
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(980, 660, 628, 10);
+        jLabel22.setBounds(980, 650, 628, 10);
 
-        jButton1.setText("FIRE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AppetFire1.setBackground(new java.awt.Color(255, 204, 0));
+        AppetFire1.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        AppetFire1.setForeground(new java.awt.Color(255, 255, 255));
+        AppetFire1.setText("FIRE");
+        AppetFire1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AppetFire1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(710, 430, 110, 40);
+        getContentPane().add(AppetFire1);
+        AppetFire1.setBounds(670, 440, 150, 40);
 
-        jButton2.setText("HIRE");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        AppetHire.setBackground(new java.awt.Color(255, 204, 0));
+        AppetHire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        AppetHire.setForeground(new java.awt.Color(255, 255, 255));
+        AppetHire.setText("HIRE");
+        AppetHire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AppetHireActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(710, 370, 110, 40);
+        getContentPane().add(AppetHire);
+        AppetHire.setBounds(670, 370, 150, 40);
 
-        jButton3.setText("FIRE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        MainHire.setBackground(new java.awt.Color(255, 204, 0));
+        MainHire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        MainHire.setForeground(new java.awt.Color(255, 255, 255));
+        MainHire.setText("HIRE");
+        MainHire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                MainHireActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(710, 670, 110, 40);
+        getContentPane().add(MainHire);
+        MainHire.setBounds(670, 590, 150, 40);
 
-        jButton4.setText("HIRE");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        MainFire.setBackground(new java.awt.Color(255, 204, 0));
+        MainFire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        MainFire.setForeground(new java.awt.Color(255, 255, 255));
+        MainFire.setText("FIRE");
+        MainFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                MainFireActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(710, 610, 110, 40);
+        getContentPane().add(MainFire);
+        MainFire.setBounds(670, 660, 150, 40);
 
-        jButton5.setText("FIRE");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        DessertHire.setBackground(new java.awt.Color(255, 204, 0));
+        DessertHire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        DessertHire.setForeground(new java.awt.Color(255, 255, 255));
+        DessertHire.setText("HIRE");
+        DessertHire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                DessertHireActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(710, 890, 110, 40);
+        getContentPane().add(DessertHire);
+        DessertHire.setBounds(670, 820, 150, 40);
 
-        jButton6.setText("HIRE");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        DessertFire.setBackground(new java.awt.Color(255, 204, 0));
+        DessertFire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        DessertFire.setForeground(new java.awt.Color(255, 255, 255));
+        DessertFire.setText("FIRE");
+        DessertFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                DessertFireActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6);
-        jButton6.setBounds(710, 830, 110, 40);
+        getContentPane().add(DessertFire);
+        DessertFire.setBounds(670, 890, 150, 40);
 
         jLabel23.setText("jLabel23");
         getContentPane().add(jLabel23);
         jLabel23.setBounds(200, 120, 48, 16);
 
-        jLabel24.setFont(new java.awt.Font("Lucida Sans", 1, 48)); // NOI18N
-        jLabel24.setText("COOKS");
-        getContentPane().add(jLabel24);
-        jLabel24.setBounds(380, 300, 180, 40);
+        jLabel31.setFont(new java.awt.Font("Candara", 1, 60)); // NOI18N
+        jLabel31.setText("WAITERS");
+        getContentPane().add(jLabel31);
+        jLabel31.setBounds(1280, 300, 270, 60);
 
-        jLabel25.setText("WAITERS");
-        getContentPane().add(jLabel25);
-        jLabel25.setBounds(1360, 350, 150, 16);
-
-        jLabel26.setText("MANAGER");
+        jLabel26.setFont(new java.awt.Font("Candara", 1, 36)); // NOI18N
+        jLabel26.setText("CHIEF WAITER");
         getContentPane().add(jLabel26);
-        jLabel26.setBounds(1190, 720, 100, 16);
+        jLabel26.setBounds(1510, 700, 240, 50);
 
-        jLabel27.setText("CHIEF WAITER");
+        jLabel32.setFont(new java.awt.Font("Candara", 1, 36)); // NOI18N
+        jLabel32.setText("MANAGER");
+        getContentPane().add(jLabel32);
+        jLabel32.setBounds(1130, 700, 190, 50);
+
+        jLabel30.setFont(new java.awt.Font("Candara", 1, 60)); // NOI18N
+        jLabel30.setText("COOKS");
+        getContentPane().add(jLabel30);
+        jLabel30.setBounds(120, 100, 270, 60);
+
+        jLabel29.setFont(new java.awt.Font("Candara", 1, 60)); // NOI18N
+        jLabel29.setText("COOKS");
+        getContentPane().add(jLabel29);
+        jLabel29.setBounds(340, 300, 270, 60);
+
+        jLabel27.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel27.setText("Number of Main Cooks:");
         getContentPane().add(jLabel27);
-        jLabel27.setBounds(1580, 710, 130, 16);
+        jLabel27.setBounds(240, 620, 340, 30);
+
+        jLabel33.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel33.setText("Number of Appetizers Available:");
+        getContentPane().add(jLabel33);
+        jLabel33.setBounds(240, 440, 340, 30);
+
+        jLabel34.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel34.setText("Number of Dessert Cooks:");
+        getContentPane().add(jLabel34);
+        jLabel34.setBounds(240, 840, 340, 30);
+
+        jLabel35.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel35.setText("Number of Desserts Available:");
+        getContentPane().add(jLabel35);
+        jLabel35.setBounds(240, 880, 360, 30);
+
+        jLabel36.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel36.setText("Current Status:");
+        getContentPane().add(jLabel36);
+        jLabel36.setBounds(1540, 760, 340, 30);
+
+        jLabel37.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel37.setText("Number of Orders:");
+        getContentPane().add(jLabel37);
+        jLabel37.setBounds(1190, 490, 340, 30);
+
+        WaiterHire.setBackground(new java.awt.Color(255, 204, 0));
+        WaiterHire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        WaiterHire.setForeground(new java.awt.Color(255, 255, 255));
+        WaiterHire.setText("HIRE");
+        WaiterHire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WaiterHireActionPerformed(evt);
+            }
+        });
+        getContentPane().add(WaiterHire);
+        WaiterHire.setBounds(1600, 430, 150, 40);
+
+        WaiterFire.setBackground(new java.awt.Color(255, 204, 0));
+        WaiterFire.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        WaiterFire.setForeground(new java.awt.Color(255, 255, 255));
+        WaiterFire.setText("FIRE");
+        WaiterFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WaiterFireActionPerformed(evt);
+            }
+        });
+        getContentPane().add(WaiterFire);
+        WaiterFire.setBounds(1600, 500, 150, 40);
+
+        jLabel38.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        jLabel38.setText("Number of Waiters:");
+        getContentPane().add(jLabel38);
+        jLabel38.setBounds(1190, 450, 340, 30);
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
+        getContentPane().add(jLabel28);
+        jLabel28.setBounds(0, 280, 1910, 860);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void AppetFire1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetFire1ActionPerformed
+        
+        this.res.fireACook(1);
+        
+    }//GEN-LAST:event_AppetFire1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void AppetHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetHireActionPerformed
+      this.res.hireACook(1);
+    }//GEN-LAST:event_AppetHireActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void MainHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainHireActionPerformed
+        this.res.hireMCook(1);
+    }//GEN-LAST:event_MainHireActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void MainFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainFireActionPerformed
+       this.res.fireMCook(1);
+    }//GEN-LAST:event_MainFireActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void DessertHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertHireActionPerformed
+       this.res.hireDCook(1);
+    }//GEN-LAST:event_DessertHireActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void DessertFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertFireActionPerformed
+       this.res.fireDCook(1);
+    }//GEN-LAST:event_DessertFireActionPerformed
+
+    private void WaiterHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaiterHireActionPerformed
+       this.res.hireWaiter(1);
+    }//GEN-LAST:event_WaiterHireActionPerformed
+
+    private void WaiterFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaiterFireActionPerformed
+       this.res.fireWaiter(1);
+    }//GEN-LAST:event_WaiterFireActionPerformed
+
+    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+       
+        int n=0;
+        System.exit(n);
+        
+    }//GEN-LAST:event_CloseButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,18 +435,22 @@ public class InitialView extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InitialView().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton AppetFire1;
+    private javax.swing.JButton AppetHire;
+    private javax.swing.JToggleButton CloseButton;
+    private javax.swing.JButton DessertFire;
+    private javax.swing.JButton DessertHire;
+    private javax.swing.JButton MainFire;
+    private javax.swing.JButton MainHire;
+    private javax.swing.JLabel TimeLabel;
+    private javax.swing.JButton WaiterFire;
+    private javax.swing.JButton WaiterHire;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -320,11 +466,22 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

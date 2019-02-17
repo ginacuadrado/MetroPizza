@@ -7,19 +7,26 @@ public class AppetizerCook extends Thread {
     
     private Table table;     //Shared 
     private int time;
-    private int appetizerCount=0;   //
     private int cookCount;
-    private int in=0,out=0;
-    private boolean hire
+    public int in=0,out=0;
+    private boolean hire=false;
     
  
-public AppetizerCook(Table table, int cookCount, int time)
+public AppetizerCook()
 {
-    this.table = table;
-    this.time= time;
-    this.cookCount= cookCount;
     
 }
+
+    public boolean isHire() {
+        return hire;
+    }
+
+
+    public void setHire(boolean hire) {
+        this.hire = hire;
+    }
+    
+    
 
 
 

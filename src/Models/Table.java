@@ -5,7 +5,7 @@ public class Table {
     
     private int[] table;    //Shared array 
     private int max;        //Maximum number of plates in the table
-    private int in=0,out=0; 
+ 
     //Constructor
     public Table(int max)
     {

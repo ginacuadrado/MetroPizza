@@ -74,15 +74,13 @@ public class InitialView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MetroPizza");
-        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setBounds(new java.awt.Rectangle(900, 900, 900, 900));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(1000, 1000));
-        setPreferredSize(new java.awt.Dimension(1800, 1000));
-        setResizable(false);
+        setLocation(new java.awt.Point(0, 0));
+        setMinimumSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(null);
 
         jLabel39.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
@@ -270,7 +268,7 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel23.setText("jLabel23");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(200, 120, 48, 16);
+        jLabel23.setBounds(200, 120, 40, 14);
 
         jLabel31.setFont(new java.awt.Font("Candara", 1, 60)); // NOI18N
         jLabel31.setText("WAITERS");
@@ -365,36 +363,36 @@ public class InitialView extends javax.swing.JFrame {
 
     private void AppetFire1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetFire1ActionPerformed
         
-        this.res.fireACook(1);
+        //this.res.fireACook(1);
         
     }//GEN-LAST:event_AppetFire1ActionPerformed
 
     private void AppetHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetHireActionPerformed
-      this.res.hireACook(1);
+      //this.res.hireACook(1);
     }//GEN-LAST:event_AppetHireActionPerformed
 
     private void MainHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainHireActionPerformed
-        this.res.hireMCook(1);
+        //this.res.hireMCook(1);
     }//GEN-LAST:event_MainHireActionPerformed
 
     private void MainFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainFireActionPerformed
-       this.res.fireMCook(1);
+       //this.res.fireMCook(1);
     }//GEN-LAST:event_MainFireActionPerformed
 
     private void DessertHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertHireActionPerformed
-       this.res.hireDCook(1);
+       //this.res.hireDCook(1);
     }//GEN-LAST:event_DessertHireActionPerformed
 
     private void DessertFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertFireActionPerformed
-       this.res.fireDCook(1);
+       //this.res.fireDCook(1);
     }//GEN-LAST:event_DessertFireActionPerformed
 
     private void WaiterHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaiterHireActionPerformed
-       this.res.hireWaiter(1);
+       //this.res.hireWaiter(1);
     }//GEN-LAST:event_WaiterHireActionPerformed
 
     private void WaiterFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaiterFireActionPerformed
-       this.res.fireWaiter(1);
+       //this.res.fireWaiter(1);
     }//GEN-LAST:event_WaiterFireActionPerformed
 
     private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
@@ -435,7 +433,6 @@ public class InitialView extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InitialView().setVisible(true);
-                
             }
         });
     }

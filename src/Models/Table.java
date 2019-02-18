@@ -4,7 +4,7 @@ package Models;
 public class Table {
     
     private int[] table;    //Shared array 
-    private int max;        //Maximum number of plates in the table
+    private int max;        //Maximum number of plates that can be on the table
     
     //Constructor
     public Table(int max)

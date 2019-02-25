@@ -11,16 +11,17 @@ public class AppetizerCook extends Thread {
     private int time;                     //Time it takes to produce a dish
     private boolean hire;                 //Indicator whether a cook is hired or not
     private Semaphore SemME, SemAC, SemW; //Mutual Exclusivity, Appetizer Cook and Waiter Semaphores
+    private int id;
     
 //CLASS CONSTRUCTOR
-public AppetizerCook(/*Table table, int time, int in, Semaphore SemME, Semaphore SemAC, Semaphore SemW*/)
+public AppetizerCook(Table table, int time, Semaphore SemME, Semaphore SemAC, Semaphore SemW)
 {
-    /*this.table = table;
-    this.time = time;*/
+    this.table = table;
+    this.time = time;
     this.hire = false;
-    /*this.SemME = SemME;
+    this.SemME = SemME;
     this.SemAC = SemAC;
-    this.SemW = SemW;*/
+    this.SemW = SemW;
 }
 
 //GETTER AND SETTER FOR COOK STATUS
@@ -31,14 +32,22 @@ public AppetizerCook(/*Table table, int time, int in, Semaphore SemME, Semaphore
     public void setHire(boolean hire) {
         this.hire = hire;
     }
+
+    public int getID(){
+        return this.id;
+    }
+    
+    public void setID(int i){
+        this.id = i;
+    }
     
 //DEFINITION OF THREAD RUN METHOD
     @Override
     public void run(){
        while(this.hire){
             try{
+                System.out.println("Appetizer cook number " + this.id + " is cooking");
                 this.SemAC.acquire();
-                
                 //Wait the set amount of time before producing a plate
                 Thread.sleep(this.time);
                 
@@ -49,6 +58,8 @@ public AppetizerCook(/*Table table, int time, int in, Semaphore SemME, Semaphore
                 this.table.setPlate(Restaurant.inAppetizers, 1);
                 Restaurant.inAppetizers = (Restaurant.inAppetizers + 1) % this.table.getMax();
                 Restaurant.addAppetizer();
+                
+                System.out.println(Restaurant.aCount);
                 
                 this.SemW.release();
                 this.SemME.release();

@@ -12,7 +12,7 @@ public class Restaurant
     private static Table aTable,dTable,mTable;
     
     //Semaphores needed for mutual exclusivity, cooks (by type) and waiters
-    private Semaphore semAC, semMC, semDC, semW, semMEA, semMEM, semMED;
+    private static Semaphore semAC, semMC, semDC, semWA, semWM, semWD, semMEA, semMEM, semMED, semMEWA, semMEWM, semMEWD;
     
     //Day time in seconds
     private long hourSeconds;
@@ -99,14 +99,19 @@ public class Restaurant
             this.semMEA = new Semaphore(1);
             this.semMEM = new Semaphore(1);
             this.semMED = new Semaphore(1);
+            this.semMEWA = new Semaphore(1);
+            this.semMEWM = new Semaphore(1);
+            this.semMEWD = new Semaphore(1);
         
         //INITIALIZING COOKS' SEMAPHORES
-            this.semAC = new Semaphore(this.maxACook);
-            this.semMC = new Semaphore(this.maxMCook);
-            this.semDC = new Semaphore(this.maxDCook);
+            this.semAC = new Semaphore(this.maxAppetizer);
+            this.semMC = new Semaphore(this.maxMain);
+            this.semDC = new Semaphore(this.maxDessert);
         
         //INITIALIZING WAITER SEMAPHORE
-            this.semW = new Semaphore(this.maxWaiter);
+            this.semWA = new Semaphore(0);
+            this.semWM = new Semaphore(0);
+            this.semWD = new Semaphore(0);
         
         //Initializing arrays with employees
             this.appetizerCook = new AppetizerCook[this.maxACook];
@@ -115,19 +120,21 @@ public class Restaurant
             this.waiter = new Waiter[this.maxWaiter];
             
             //Initializing array with Appetizer Cooks
-            for(int init=0; init <maxACook; init++)
+            for(int init=0; init < maxACook; init++)
             {
-                this.appetizerCook[init]= new AppetizerCook();
+                this.appetizerCook[init]= new AppetizerCook(this.aTable, 1000, this.semMEA, this.semAC, this.semWA);
+                this.appetizerCook[init].setID(init);
+                System.out.println("Apptizer cook " + init + " initialized");
             }
             
             //Initializing array with Main Cooks
-            for(int init=0; init <maxMCook; init++)
+            for(int init=0; init < maxMCook; init++)
             {
                 this.mainCook[init]= new MainCook();
             }
             
             //Initializing array with Dessert Cooks
-            for(int init=0; init <maxDCook; init++)
+            for(int init=0; init < maxDCook; init++)
             {
                 this.dessertCook[init]= new DessertCook();
             }
@@ -139,7 +146,7 @@ public class Restaurant
             }
             
             //Hire initial number of Appetizers Cooks wanted in the restaurant
-            for(int init=0; init <initACook; init++)
+            for(int init=0; init < initACook; init++)
             {
                 hireACook(1);
             }
@@ -178,14 +185,15 @@ public void hireACook(int value)
     }
     else
     {
-        for(int i=0; i<this.maxACook; i++)//Hiring a new Appetizer Cook for the restaurant
+        for(int i=0; i < this.maxACook; i++)//Hiring a new Appetizer Cook for the restaurant
         {
-            if(!this.appetizerCook[i].isHire() && c > 0)
+            if(!(this.appetizerCook[i].isHire()) && c > 0)
             {
                 this.appetizerCook[i].setHire(true);
-                System.out.println("An Appetizer Cook was hired");
+                this.appetizerCook[i].start();
+                System.out.println("Appetizer Cook " + i + " was hired");
                 countACook++;
-                c=c-1;
+                c = c-1;
             }
         }
     }

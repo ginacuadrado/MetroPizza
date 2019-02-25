@@ -2,6 +2,7 @@
 package Models;
 
 import Controllers.JSONController;
+import Views.InitialView;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Restaurant 
@@ -36,6 +37,9 @@ public class Restaurant
     //Buffer positions
     public static int inAppetizers,outAppetizers,inMain,outMain,inDesserts,outDesserts;
     
+    //Counters 
+        private int countACook, countDCook, countMCook, countWaiter;
+          
     //Declaration of an Array for keeping track of hired employees 
     private AppetizerCook[] appetizerCook;
     private MainCook[] mainCook;
@@ -48,6 +52,13 @@ public class Restaurant
     
     public Restaurant()
     {
+        
+        //COUNTERS
+          this.countACook=0;
+          this.countDCook=0;
+          this.countMCook=0;
+          this.countWaiter=0;
+        
         //TABLES
             //Initializing JSON Values for the table
             this.maxAppetizer = this.json.maxAppetizer;
@@ -87,266 +98,299 @@ public class Restaurant
             this.waiter = new Waiter[this.maxWaiter];
             
             //Initializing array with Appetizer Cooks
-            for(int init=0; init<maxACook; init++)
+            for(int init=0; init <maxACook; init++)
             {
-            //    this.appetizerCook[init]= new AppetizerCook(aTable,750);
+                this.appetizerCook[init]= new AppetizerCook();
             }
             
             //Initializing array with Main Cooks
-            for(int init=0; init<maxMCook; init++)
+            for(int init=0; init <maxMCook; init++)
             {
-            //    this.mainCook[init]= new MainCook();
+                this.mainCook[init]= new MainCook();
             }
             
             //Initializing array with Dessert Cooks
-            for(int init=0; init<maxDCook; init++)
+            for(int init=0; init <maxDCook; init++)
             {
-            //    this.dessertCook[init]= new DessertCook();
+                this.dessertCook[init]= new DessertCook();
             }
             
             //Initializing array with Waiters
-            for(int init=0; init<maxWaiter; init++)
+            for(int init=0; init <maxWaiter; init++)
             {
-            //    this.waiter[init] = new Waiter();
+                this.waiter[init]= new Waiter();
             }
-            /*
+            
             //Hire initial number of Appetizers Cooks wanted in the restaurant
-            int i=0;
-            do {
+            for(int init=0; init <initACook; init++)
+            {
                 hireACook(1);
-                i++;
-            }while(i<initACook);
+            }
             
             //Hire initial number of Main Cooks wanted in the restaurant
-            i=0;
-            do {
+            for(int init=0; init <initMCook; init++)
+            {
                 hireMCook(1);
-                i++;
-                
-            }while(i<initMCook);
+            }
+            
+            //Hire initial number of Desserts Cooks wanted in the restaurant
+            for(int init=0; init <initDCook; init++)
+            {
+                hireDCook(1);
+            }
             
             //Hire initial number of Waiters wanted in the restaurant
-            i=0;
-            do {
+            for(int init=0; init <initWaiter; init++)
+            {
                 hireWaiter(1);
-                i++;
-            }while(i<initWaiter);*/
+            }
             
     }
-
-    
+  
 //M E T H O D S
     
 //HIRE AN APPETIZER COOK
-    public void hireACook(int value)
+public void hireACook(int value)
+{
+    int c = value;  //Number of cooks that need to be hired (optional if we need to hire more than one cook at a time)
+       
+    //Validation for maximum of Appetizer Cooks that can be hired
+    if(countACook==maxACook)
     {
-        int c = value;  //Number of cooks that need to be hired
-        
-        //Validation for maximum of Appetizer Cooks that can be hired
-        if(Restaurant.acCount==this.maxACook){
-            //showMessageDialog(null,"ERROR! You can't hire any more Appetizer Cooks");
-            System.out.println("ERROR! You can't hire any more Appetizer Cooks");
-            return;
-        }
-        
-        //Hiring a new Appetizer Cook for the restaurant
-        for(int i=0; i<this.maxACook; i++)
+        showMessageDialog(null,"You can't hire any more Appetizer Cooks");  
+    }
+    else
+    {
+        for(int i=0; i<this.maxACook; i++)//Hiring a new Appetizer Cook for the restaurant
         {
             if(!this.appetizerCook[i].isHire() && c > 0)
             {
                 this.appetizerCook[i].setHire(true);
+                System.out.println("An Appetizer Cook was hired");
+                countACook++;
                 c=c-1;
-                Restaurant.acCount++;
             }
         }
     }
-      
-    
+}
+          
 //HIRE A MAIN COOK
-    public void hireMCook(int value)
+public void hireMCook(int value)
+{
+    int c = value;  //Number of cooks that need to be hired (optional if we need to hire more than one cook at a time)
+
+    if(countMCook==maxMCook)//Validation for maximum of Main Cooks that can be hired
     {
-        int c = value;  //Number of cooks that need to be hired
-        
-        //Validation for maximum of Main Cooks that can be hired
-        if(Restaurant.mcCount==this.maxMCook){
-            showMessageDialog(null,"ERROR! You can't hire any more Main Cooks");
-            return;
-        }
-        
-        //Hiring a new Main Cook for the restaurant
-        for(int i=0; i<this.maxMCook; i++)
+        showMessageDialog(null,"You can't hire any more Main Cooks");
+    }
+    else
+    {    
+        for(int i=0; i<this.maxMCook; i++)//Hiring a new Main Cook for the restaurant
         {
             if(!this.mainCook[i].isHire() && c > 0)
             {
                 this.mainCook[i].setHire(true);
+                System.out.println("A Main Cook was hired");
+                countMCook++;
                 c=c-1;
-                Restaurant.mcCount++;
             }
         }
-    }
-    
-    
+    } 
+}
+      
 //HIRE A DESSERT COOK 
-    public void hireDCook(int value)
+public void hireDCook(int value)
+{
+    int c = value;  //Number of cooks that need to be hired (optional if we need to hire more than one cook at a time)
+    
+    if(countDCook==maxDCook)//Validation for maximum of Dessert Cooks that can be hired 
     {
-        int c = value;  //Number of cooks that need to be hired
-        
-        //Validation for maximum of Dessert Cooks that can be hired
-        if(Restaurant.dcCount==this.maxDCook){
-            showMessageDialog(null,"ERROR! You can't hire any more Dessert Cooks");
-            return;
-        }
-        
-        //Hiring a new Dessert Cook for the restaurant
-        for(int i=0; i<this.maxDCook; i++)
+        showMessageDialog(null,"You can't hire any more Dessert Cooks");
+    }
+    else
+    {
+        for(int i=0; i<this.maxDCook; i++)//Hiring a new Dessert Cook for the restaurant
         {
             if(!this.dessertCook[i].isHire() && c > 0)
             {
                 this.dessertCook[i].setHire(true);
+                countDCook++;
+                System.out.println("A Dessert Cook was hired");
                 c=c-1;
-                Restaurant.dcCount++;
             }
         }
     }
+}
     
-
 //HIRE A WAITER 
-    public void hireWaiter(int value)
+public void hireWaiter(int value)
+{
+    int c = value;  //Number of waiters that need to be hired (optional if we need to hire more than one waiter at a time)
+     
+    if(countWaiter==maxWaiter)//Validation for maximum of Waiters that can be hired
     {
-        int c = value;  //Number of waiters that need to be hired
-        
-        //Validation for maximum of Dessert Cooks that can be hired
-        if(Restaurant.wCount==this.maxWaiter){
-            System.out.println("ERROR! You can't hire any more Waiters");
-            return;
-        }
-        
-        //Hiring a new Waiter for the restaurant
-        for(int i=0; i<this.maxWaiter; i++)
+        showMessageDialog(null,"You can't hire any more Waiter");
+
+    }
+    else
+    {   
+        for(int i=0; i<this.maxWaiter; i++)//Hiring a new Waiter for the restaurant
         {
             if(!this.waiter[i].isHire() && c > 0)
             {
                 this.waiter[i].setHire(true);
+                countWaiter++;
+                System.out.println("A Waiter was hired");
                 c=c-1;
-                Restaurant.wCount++;
             }
-        }
+        } 
     }
+}
 
  //FIRE A APPETIZER COOK
-    public void fireACook(int value)
+public void fireACook(int value)
+{
+    int c = value;  //Number of waiters that need to be fired (optional if we need to fire more than one cook at a time)
+     
+    if(countACook==0)//Validation for maximum of Appetizer Cooks that can be fired
     {
-        int c = value;  //Number of waiters that need to be fired
-        
-        //Validation for maximum of Waiter that can be hired
-        if(Restaurant.acCount==0){
-            System.out.println("ERROR! You don't have any more Appetizer Cooks to fire");
-            return;
-        }
-        
-        //Firing a current Appetizer Cooks of the restaurant
-        for(int i=maxACook-1; i>-1; i--)
+        showMessageDialog(null,"You can't fire any more Appetizer Cooks");
+    }
+    else
+    {
+        for(int i=maxACook-1; i>-1; i--)//Firing a current Appetizer Cooks of the restaurant
         {
             if(this.appetizerCook[i].isHire() && c > 0)
             {
                 this.appetizerCook[i].setHire(false);
                 System.out.println("An Appetizer Cook was fired");
+                countACook--;
                 c=c-1;
-                Restaurant.acCount--;
             }
-        }
-    }   
+        } 
+    }
+}   
 
- //FIRE A MAIN COOK
-    public void fireMCook(int value)
+//FIRE A MAIN COOK
+public void fireMCook(int value)
+{
+    int c = value;  //Number of Main Cooks that need to be fired (optional)
+ 
+    if(countMCook==0)//Validation for maximum of Main Cooks that can be fired
     {
-        int c = value;  //Number of waiters that need to be fired
-        
-        //Validation for maximum of Main Cook that can be fired
-        if(Restaurant.mcCount==0){
-            System.out.println("ERROR! You don't have any Main Cooks to fire");
-            return;
-        }
-                
-        //Firing a current Main Cooks of the restaurant
-        for(int i=maxMCook; i>-1; i--)
+        showMessageDialog(null,"You can't fire any more Main Cooks");  
+    }
+    else
+    {
+        for(int i=maxMCook-1; i>-1; i--)//Firing a current Main Cooks of the restaurant
         {
+           
             if(this.mainCook[i].isHire() && c > 0)
             {
+                
                 this.mainCook[i].setHire(false);
                 System.out.println("A Main Cook was fired");
+                countMCook--;
                 c=c-1;
-                Restaurant.mcCount--;
             }
-        }
-    }   
+        }  
+    }
+}   
 
+//FIRE A DESSERT COOK
+public void fireDCook(int value)
+{
+    int c = value;  //Number of Dessert Cooks that need to be fired (optional)
 
- //FIRE A DESSERT COOK
-    public void fireDCook(int value)
+    if(countDCook==0)//Validation for maximum of Dessert Cook that can be fired
     {
-        int c = value;  //Number of waiters that need to be fired
-        
-        //Validation for maximum of Dessert Cook that can be fired
-        if(Restaurant.dcCount==0){
-            System.out.println("ERROR! You don't have any Dessert Cooks to fire");
-            return;
-        }
-        
-        //Firing a current Dessert Cooks of the restaurant
-        for(int i=maxDCook; i>-1; i--)
+        showMessageDialog(null,"You can't fire any more Dessert Cooks");
+   
+    }
+    else{   
+       
+        for(int i=maxDCook-1; i>-1; i--) //Firing a current Dessert Cook of the restaurant
         {
             if(this.dessertCook[i].isHire() && c > 0)
             {
                 this.dessertCook[i].setHire(false);
                 System.out.println("A Dessert Cook was fired");
+                countDCook--;
                 c=c-1;
-                Restaurant.dcCount--;
             }
         }
-    }   
-    
-
-    
+    }
+}   
+     
 //FIRE A WAITER 
-    public void fireWaiter(int value)
+public void fireWaiter(int value)
+{
+    int c = value;  //Number of waiters that need to be hired (optional)
+    
+    if(countWaiter==0)//Validation for maximum of Waiters that can be fired
     {
-        int c = value;  //Number of waiters that need to be hired
-        
-        //Validation for maximum of Waiter that can be hired
-        if(Restaurant.wCount==0){
-            System.out.println("ERROR! You don't have any waiters to fire");
-            return;
-        }
-        
-        //Firing a current Waiter of the restaurant
-        for(int i=maxWaiter; i>-1; i--)
+        showMessageDialog(null,"You can't fire any more Waiters");     
+    }
+    else
+    { 
+        for(int i=maxWaiter-1; i>-1; i--)//Firing a current Waiter of the restaurant
         {
             if(this.waiter[i].isHire() && c > 0)
             {
                 this.waiter[i].setHire(false);
+                System.out.println("A Waiter was fired");
+                countWaiter--;
                 c=c-1;
-                Restaurant.wCount--;
             }
         }
-    }
+    }   
+}
 
-//ADD 1 APPETIZER
-    public static void addAppetizer(){
-        Restaurant.aCount++;
-    }
+//Getter of cooks and waiters
+public int getCountACook() 
+{
+    return countACook;
+}
 
-//ADD 1 MAIN DISH
-    public static void addMain(){
-        Restaurant.mCount++;
-    }
+public int getCountDCook() 
+{
+    return countDCook;
+}
 
-//ADD 1 DESSERT
-    public static void addDessert(){
-        Restaurant.dCount++;
-    }
+public int getCountMCook() 
+{
+    return countMCook;
+}
 
-    /*
+public int getCountWaiter() 
+{
+    return countWaiter;
+}
+
+public static void addAppetizer(){
+    Restaurant.aCount++;
+}
+
+public static void addMain(){
+    Restaurant.mCount++;
+}
+
+public static void addDessert(){
+    Restaurant.dCount++;
+}
+
+public static void removeAppetizer(){
+    Restaurant.aCount--;
+}
+
+public static void removeMain(){
+    Restaurant.mCount--;
+}
+
+public static void removeDessert(){
+    Restaurant.dCount--;
+}
+/*
 //ADD 1 APPETIZER COOK
     public static void addACook(){
         Restaurant.acCount++;

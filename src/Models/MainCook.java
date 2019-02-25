@@ -11,14 +11,14 @@ public class MainCook extends Thread {
     private Semaphore SemME, SemMC, SemW; //Mutual Exclusivity, Main Cook and Waiter Semaphores
     
 //CLASS CONSTRUCTOR
-public MainCook(Table table, int time, int in, Semaphore SemME, Semaphore SemMC, Semaphore SemW)
+public MainCook(/*Table table, int time, int in, Semaphore SemME, Semaphore SemMC, Semaphore SemW*/)
 {
-    this.table = table;
-    this.time = time;
+    /*this.table = table;
+    this.time = time;*/
     this.hire = false;
-    this.SemME = SemME;
+    /*this.SemME = SemME;
     this.SemMC = SemMC;
-    this.SemW = SemW;
+    this.SemW = SemW;*/
 }
 
     public boolean isHire() {

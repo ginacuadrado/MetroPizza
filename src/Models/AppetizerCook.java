@@ -13,14 +13,14 @@ public class AppetizerCook extends Thread {
     private Semaphore SemME, SemAC, SemW; //Mutual Exclusivity, Appetizer Cook and Waiter Semaphores
     
 //CLASS CONSTRUCTOR
-public AppetizerCook(Table table, int time, int in, Semaphore SemME, Semaphore SemAC, Semaphore SemW)
+public AppetizerCook(/*Table table, int time, int in, Semaphore SemME, Semaphore SemAC, Semaphore SemW*/)
 {
-    this.table = table;
-    this.time = time;
+    /*this.table = table;
+    this.time = time;*/
     this.hire = false;
-    this.SemME = SemME;
+    /*this.SemME = SemME;
     this.SemAC = SemAC;
-    this.SemW = SemW;
+    this.SemW = SemW;*/
 }
 
 //GETTER AND SETTER FOR COOK STATUS

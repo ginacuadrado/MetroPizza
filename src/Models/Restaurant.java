@@ -34,7 +34,7 @@ public class Restaurant
     private int maxWaiter;
           
     //Buffer positions
-    private static int inAppetizers,outAppetizers,inMain,outMain,inDessert,outDessert;
+    public static int inAppetizers,outAppetizers,inMain,outMain,inDesserts,outDesserts;
     
     //Declaration of an Array for keeping track of hired employees 
     private AppetizerCook[] appetizerCook;
@@ -48,8 +48,6 @@ public class Restaurant
     
     public Restaurant()
     {
-        
-        
         //TABLES
             //Initializing JSON Values for the table
             this.maxAppetizer = this.json.maxAppetizer;
@@ -66,7 +64,15 @@ public class Restaurant
             this.initDCook = this.json.initDCook;
             this.initMCook = this.json.initMCook;
             this.initWaiter = this.json.initWaiter;
-    
+        
+        //ASSIGNING INITIAL IN AND OUT VALUES
+            this.inAppetizers = 0;
+            this.outAppetizers = 0;
+            this.inDesserts = 0;
+            this.outDesserts = 0;
+            this.inMain = 0;
+            this.outMain = 0;
+            
         //ARRAYS FOR EMPLOYEES
             //Initializing maximum number of employees of each type
             this.maxACook = this.json.maxACook;
@@ -74,7 +80,7 @@ public class Restaurant
             this.maxDCook = this.json.maxDCook;
             this.maxWaiter = this.json.maxWaiter;
             
-            //Initializing arrays with employees
+        //Initializing arrays with employees
             this.appetizerCook = new AppetizerCook[this.maxACook];
             this.mainCook = new MainCook[this.maxMCook];
             this.dessertCook = new DessertCook[this.maxDCook];
@@ -83,25 +89,25 @@ public class Restaurant
             //Initializing array with Appetizer Cooks
             for(int init=0; init<maxACook; init++)
             {
-                this.appetizerCook[init]= new AppetizerCook(aTable,750);
+            //    this.appetizerCook[init]= new AppetizerCook(aTable,750);
             }
             
             //Initializing array with Main Cooks
             for(int init=0; init<maxMCook; init++)
             {
-                this.mainCook[init]= new MainCook();
+            //    this.mainCook[init]= new MainCook();
             }
             
             //Initializing array with Dessert Cooks
             for(int init=0; init<maxDCook; init++)
             {
-                this.dessertCook[init]= new DessertCook();
+            //    this.dessertCook[init]= new DessertCook();
             }
             
             //Initializing array with Waiters
             for(int init=0; init<maxWaiter; init++)
             {
-                this.waiter[init] = new Waiter();
+            //    this.waiter[init] = new Waiter();
             }
             /*
             //Hire initial number of Appetizers Cooks wanted in the restaurant

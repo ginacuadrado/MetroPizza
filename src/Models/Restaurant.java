@@ -3,12 +3,16 @@ package Models;
 
 import Controllers.JSONController;
 import Views.InitialView;
+import java.util.concurrent.Semaphore;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Restaurant 
 {
     //Buffer for appetizers, desserts, main dishes.
     private static Table aTable,dTable,mTable;
+    
+    //Semaphores needed for mutual exclusivity, cooks (by type) and waiters
+    private Semaphore semAC, semMC, semDC, semW, semMEA, semMEM, semMED;
     
     //Day time in seconds
     private long hourSeconds;
@@ -38,7 +42,7 @@ public class Restaurant
     public static int inAppetizers,outAppetizers,inMain,outMain,inDesserts,outDesserts;
     
     //Counters 
-        private int countACook, countDCook, countMCook, countWaiter;
+    private int countACook, countDCook, countMCook, countWaiter;
           
     //Declaration of an Array for keeping track of hired employees 
     private AppetizerCook[] appetizerCook;
@@ -91,6 +95,19 @@ public class Restaurant
             this.maxDCook = this.json.maxDCook;
             this.maxWaiter = this.json.maxWaiter;
             
+        //INITIALIZING MUTUAL EXCLUSIVITY SEMAPHORES
+            this.semMEA = new Semaphore(1);
+            this.semMEM = new Semaphore(1);
+            this.semMED = new Semaphore(1);
+        
+        //INITIALIZING COOKS' SEMAPHORES
+            this.semAC = new Semaphore(this.maxACook);
+            this.semMC = new Semaphore(this.maxMCook);
+            this.semDC = new Semaphore(this.maxDCook);
+        
+        //INITIALIZING WAITER SEMAPHORE
+            this.semW = new Semaphore(this.maxWaiter);
+        
         //Initializing arrays with employees
             this.appetizerCook = new AppetizerCook[this.maxACook];
             this.mainCook = new MainCook[this.maxMCook];

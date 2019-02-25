@@ -2,6 +2,7 @@
 package Models;
 
 import Controllers.JSONController;
+import Views.InitialView;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Restaurant 

@@ -5,12 +5,13 @@
  */
 package Views;
 
+import Controllers.ViewController;
 import Models.Restaurant;
+import javax.swing.JLabel;
 
 public class InitialView extends javax.swing.JFrame {
 
-    private Restaurant res = new Restaurant();
-    
+    public static Restaurant res = new Restaurant();
     
     public InitialView() {
         initComponents();
@@ -60,6 +61,10 @@ public class InitialView extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         WaiterHire = new javax.swing.JButton();
         WaiterFire = new javax.swing.JButton();
+        numberACooks = new javax.swing.JLabel();
+        numberMCooks = new javax.swing.JLabel();
+        numberDCooks = new javax.swing.JLabel();
+        numberWaiters = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -76,6 +81,7 @@ public class InitialView extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
         setIconImages(null);
+        setLocation(new java.awt.Point(250, 250));
         setMaximumSize(new java.awt.Dimension(1200, 600));
         setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
@@ -144,7 +150,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel25.setText("Number of Appetizer Cooks: ");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(80, 240, 340, 30);
+        jLabel25.setBounds(80, 240, 230, 30);
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel16);
@@ -213,7 +219,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel41.setText("Number of Dessert Cooks: ");
         getContentPane().add(jLabel41);
-        jLabel41.setBounds(80, 440, 340, 30);
+        jLabel41.setBounds(80, 440, 210, 30);
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         jLabel19.setMaximumSize(new java.awt.Dimension(628, 200));
@@ -305,6 +311,30 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(WaiterFire);
         WaiterFire.setBounds(880, 270, 90, 30);
 
+        numberACooks.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberACooks.setForeground(new java.awt.Color(255, 0, 51));
+        numberACooks.setText("5454");
+        getContentPane().add(numberACooks);
+        numberACooks.setBounds(310, 240, 50, 30);
+
+        numberMCooks.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberMCooks.setForeground(new java.awt.Color(255, 0, 51));
+        numberMCooks.setText("254");
+        getContentPane().add(numberMCooks);
+        numberMCooks.setBounds(270, 340, 80, 30);
+
+        numberDCooks.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberDCooks.setForeground(new java.awt.Color(255, 0, 0));
+        numberDCooks.setText("25");
+        getContentPane().add(numberDCooks);
+        numberDCooks.setBounds(290, 440, 70, 30);
+
+        numberWaiters.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberWaiters.setForeground(new java.awt.Color(255, 0, 0));
+        numberWaiters.setText("5454");
+        getContentPane().add(numberWaiters);
+        numberWaiters.setBounds(750, 236, 70, 30);
+
         jLabel35.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         jLabel35.setText("WAITERS");
         getContentPane().add(jLabel35);
@@ -318,7 +348,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel30.setText("Number of Main Cooks: ");
         getContentPane().add(jLabel30);
-        jLabel30.setBounds(80, 340, 340, 30);
+        jLabel30.setBounds(80, 340, 190, 30);
 
         jLabel40.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel40.setText("Number of Main Dishes Available:");
@@ -366,6 +396,7 @@ public class InitialView extends javax.swing.JFrame {
 
     private void DessertHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertHireActionPerformed
        this.res.hireDCook(1);
+   
     }//GEN-LAST:event_DessertHireActionPerformed
 
     private void DessertFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertFireActionPerformed
@@ -416,7 +447,9 @@ public class InitialView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InitialView().setVisible(true);
+                InitialView v= new InitialView();
+                        v.setVisible(true);
+                
                 
             }
         });
@@ -467,7 +500,45 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel numberACooks;
+    private javax.swing.JLabel numberDCooks;
+    private javax.swing.JLabel numberMCooks;
+    private javax.swing.JLabel numberWaiters;
     // End of variables declaration//GEN-END:variables
 
+    public JLabel getNumberACooks() {
+        return numberACooks;
+    }
+
+    public void setNumberACooks(JLabel numberACooks) {
+        this.numberACooks = numberACooks;
+    }
+
+    public JLabel getNumberDCooks() {
+        return numberDCooks;
+    }
+
+    public void setNumberDCooks(JLabel numberDCooks) {
+        this.numberDCooks = numberDCooks;
+    }
+
+    public JLabel getNumberMCooks() {
+        return numberMCooks;
+    }
+
+    public void setNumberMCooks(JLabel numberMCooks) {
+        this.numberMCooks = numberMCooks;
+    }
+
+    public JLabel getNumberWaiters() {
+        return numberWaiters;
+    }
+
+    public void setNumberWaiters(JLabel numberWaiters) {
+        this.numberWaiters = numberWaiters;
+    }
+
+ 
+    
   
 }

@@ -10,6 +10,6 @@
 	"maxACook" : "3",
 	"maxMCook" : "4" ,
 	"maxDCook" : "2" ,
-	"initWaiter" : "1",
+	"initWaiter" : "2",
 	"maxWaiter" : "6" 
 }

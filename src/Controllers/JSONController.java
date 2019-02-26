@@ -16,6 +16,7 @@ public class JSONController {
     
         public JSONController()
         {
+            
         JSONParser parser = new JSONParser();
  
         try {
@@ -37,12 +38,60 @@ public class JSONController {
             this.maxDCook = Integer.parseInt((String) jsonObject.get("maxDCook"));
             this.initWaiter = Integer.parseInt((String) jsonObject.get("initWaiter"));
             this.maxWaiter = Integer.parseInt((String) jsonObject.get("maxWaiter"));
+            
+            //Validation for negative numbers
+            if(        this.daySeconds<0
+                    || this.maxAppetizer<=0
+                    || this.maxMain<=0
+                    || this.maxDessert<=0 
+                    || this.initACook<0 
+                    || this.initMCook<0 
+                    || this.initDCook<0
+                    || this.maxACook<=0 
+                    || this.maxMCook<=0 
+                    || this.maxDCook<=0 
+                    || this.initWaiter<0 
+                    || this.maxWaiter<=0)
+            {
+                System.out.println(this.daySeconds);
+ 
+                throw new Exception("ERROR! The program can't start with negative values in the JSON. Please modify the values and retry the execution");
+                
+            }
+            
+            if (this.initACook > this.maxACook ||
+                this.initMCook > this.maxMCook ||
+                this.initDCook > this.maxDCook ||
+                this.initWaiter > this.maxWaiter)
+            {
+                throw new Exception("ERROR! The initial number of employees must be less than the maximum number of them. Please modify the values and retry the execution");
+            }
+            
 
-          
-        } catch (Exception e) {     //Catching errors
-             if(e instanceof FileNotFoundException){
-                JOptionPane.showMessageDialog(null, "ERROR! JSON file 'initialValues.json' was not found");
+        } 
+        
+        catch (Exception e) 
+        {     //Catching errors about invalid JSON and no-int values
+             if(e instanceof FileNotFoundException)
+             {
+                JOptionPane.showMessageDialog(null, "ERROR! JSON file 'initialValues.json' was not found. Please, try again");
+                System.exit(0);
+             }
+             
+             else if(e instanceof NumberFormatException)
+             {
+                 JOptionPane.showMessageDialog(null, "ERROR! JSON file must only contain numbers. Please configure the JSON again");
+                 System.exit(0);
+             }
+             
+             else
+             {
+                 JOptionPane.showMessageDialog(null,e.getMessage());
+                 System.exit(0);
+             }
+             
         }
-    }}
+        
+        }
 
 }

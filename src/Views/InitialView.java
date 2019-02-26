@@ -70,7 +70,6 @@ public class InitialView extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         numberADishes = new javax.swing.JLabel();
         numberMDishes = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -103,7 +102,7 @@ public class InitialView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Close);
-        Close.setBounds(950, 10, 40, 9);
+        Close.setBounds(950, 10, 40, 40);
 
         TimeLabel.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         TimeLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -231,7 +230,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel19.setBounds(530, 340, 440, 10);
 
         jLabel42.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel42.setText("Number of Desserts Available:");
+        jLabel42.setText("Number of Available Desserts:");
         getContentPane().add(jLabel42);
         jLabel42.setBounds(80, 470, 340, 30);
 
@@ -265,7 +264,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel34.setBounds(590, 240, 160, 30);
 
         jLabel43.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel43.setText("Number of Orders Attended:");
+        jLabel43.setText("Number of Taken Orders:");
         getContentPane().add(jLabel43);
         jLabel43.setBounds(590, 270, 230, 30);
 
@@ -359,13 +358,9 @@ public class InitialView extends javax.swing.JFrame {
         jLabel29.setBounds(200, 190, 270, 60);
 
         jLabel33.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel33.setText("Number of Appetizers Available:");
+        jLabel33.setText("Number of Available Appetizers:");
         getContentPane().add(jLabel33);
         jLabel33.setBounds(80, 270, 340, 30);
-
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(580, 430, 34, 14);
 
         numberADishes.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         numberADishes.setForeground(new java.awt.Color(255, 0, 51));
@@ -380,7 +375,7 @@ public class InitialView extends javax.swing.JFrame {
         numberMDishes.setBounds(350, 370, 40, 30);
 
         jLabel40.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel40.setText("Number of Main Dishes Available:");
+        jLabel40.setText("Number of Main Available Dishes:");
         getContentPane().add(jLabel40);
         jLabel40.setBounds(80, 370, 340, 30);
 
@@ -489,7 +484,6 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel TimeLabel;
     private javax.swing.JButton WaiterFire;
     private javax.swing.JButton WaiterHire;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;

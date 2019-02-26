@@ -68,11 +68,14 @@ public class InitialView extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        numberADishes = new javax.swing.JLabel();
+        numberMDishes = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        numberDDishes = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MetroPizza");
@@ -82,6 +85,9 @@ public class InitialView extends javax.swing.JFrame {
         setFocusCycleRoot(false);
         setIconImages(null);
         setLocation(new java.awt.Point(250, 250));
+        setMinimumSize(new java.awt.Dimension(1000, 600));
+        setPreferredSize(new java.awt.Dimension(1000, 600));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel39.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
@@ -347,11 +353,6 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(jLabel30);
         jLabel30.setBounds(80, 340, 190, 30);
 
-        jLabel40.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel40.setText("Number of Main Dishes Available:");
-        getContentPane().add(jLabel40);
-        jLabel40.setBounds(80, 370, 340, 30);
-
         jLabel29.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         jLabel29.setText("COOKS");
         getContentPane().add(jLabel29);
@@ -362,13 +363,36 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(jLabel33);
         jLabel33.setBounds(80, 270, 340, 30);
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
-        getContentPane().add(jLabel28);
-        jLabel28.setBounds(-120, 190, 1120, 470);
-
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(580, 430, 34, 14);
+
+        numberADishes.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberADishes.setForeground(new java.awt.Color(255, 0, 51));
+        numberADishes.setText("20");
+        getContentPane().add(numberADishes);
+        numberADishes.setBounds(340, 270, 19, 30);
+
+        numberMDishes.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberMDishes.setForeground(new java.awt.Color(255, 0, 51));
+        numberMDishes.setText("30");
+        getContentPane().add(numberMDishes);
+        numberMDishes.setBounds(350, 370, 40, 30);
+
+        jLabel40.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel40.setText("Number of Main Dishes Available:");
+        getContentPane().add(jLabel40);
+        jLabel40.setBounds(80, 370, 340, 30);
+
+        numberDDishes.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberDDishes.setForeground(new java.awt.Color(255, 0, 51));
+        numberDDishes.setText("10");
+        getContentPane().add(numberDDishes);
+        numberDDishes.setBounds(320, 470, 40, 30);
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
+        getContentPane().add(jLabel28);
+        jLabel28.setBounds(-120, 190, 1120, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -498,15 +522,18 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel numberACooks;
+    private javax.swing.JLabel numberADishes;
     private javax.swing.JLabel numberDCooks;
+    private javax.swing.JLabel numberDDishes;
     private javax.swing.JLabel numberMCooks;
+    private javax.swing.JLabel numberMDishes;
     private javax.swing.JLabel numberWaiters;
     // End of variables declaration//GEN-END:variables
 
     public JLabel getNumberACooks() {
         return numberACooks;
     }
-
+    
     public void setNumberACooks(JLabel numberACooks) {
         this.numberACooks = numberACooks;
     }
@@ -535,7 +562,17 @@ public class InitialView extends javax.swing.JFrame {
         this.numberWaiters = numberWaiters;
     }
 
- 
-    
-  
+    public JLabel getNumberADishes() {
+        return numberADishes;
+    }
+
+    public JLabel getNumberDDishes() {
+        return numberDDishes;
+    }
+
+    public JLabel getNumberMDishes() {
+        return numberMDishes;
+    }
+
+
 }

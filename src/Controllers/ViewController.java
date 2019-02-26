@@ -24,6 +24,9 @@ public void run()
             this.view.getNumberDCooks().setText(Integer.toString(this.view.res.getCountDCook()));
             this.view.getNumberMCooks().setText(Integer.toString(this.view.res.getCountMCook()));
             this.view.getNumberWaiters().setText(Integer.toString(this.view.res.getCountWaiter()));
+            this.view.getNumberADishes().setText(Integer.toString(Restaurant.aCount));
+            this.view.getNumberMDishes().setText(Integer.toString(Restaurant.mCount));
+            this.view.getNumberDDishes().setText(Integer.toString(Restaurant.dCount));
         }
         
 }

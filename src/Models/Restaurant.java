@@ -249,7 +249,7 @@ public void hireWaiter(int value)
                 this.waiter[i].setID(i + 1);
                 this.waiter[i].start();
                 countWaiter++;
-                System.out.println("A Waiter was hired");
+                //System.out.println("A Waiter was hired");
                 c=c-1;
             }
         } 

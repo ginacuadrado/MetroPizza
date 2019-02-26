@@ -53,7 +53,7 @@ public class Waiter extends Thread{
 //DEFINITION OF THREAD RUN METHOD
     @Override
     public void run(){
-        System.out.println("Hello! I am waiter number " + this.id);
+        //System.out.println("Hello! I am waiter number " + this.id);
         while(this.hire){
            try{
                //Acquire permits to take dishes

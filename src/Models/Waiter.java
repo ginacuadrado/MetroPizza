@@ -102,6 +102,7 @@ public class Waiter extends Thread{
                //If a waiter is fired, reflect this after they finish they last order they started assembling
                if(!this.hire){
                    Restaurant.displayWaiter--;
+                   Restaurant.resetMessage();
                }
            } catch(InterruptedException ex) {
                Logger.getLogger(AppetizerCook.class.getName()).log(Level.SEVERE, null, ex);

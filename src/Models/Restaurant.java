@@ -11,6 +11,9 @@ public class Restaurant
     //Buffer for appetizers, desserts, main dishes.
     private static Table aTable,dTable,mTable;
     
+    //Display message for useful information on view
+    public static String msg;
+    
     //Semaphores needed for mutual exclusivity, cooks (by type) and waiters
     private static Semaphore semAC, semMC, semDC, semWA, semWM, semWD, semMEA, semMEM, semMED, semMEWA, semMEWM, semMEWD, semMEC;
     
@@ -76,6 +79,9 @@ public class Restaurant
           this.displayMCook = 0;
           this.displayWaiter = 0;
           this.countdown = 10;
+          
+        //DEFAULT EMPTY MESSAGE
+          this.msg = "";
           
         //Assigning hour duration
         this.hourSeconds = this.json.daySeconds;
@@ -197,6 +203,7 @@ public void hireACook(int value)
                 //System.out.println("Appetizer Cook " + (i+1) + " was hired");
                 countACook++;
                 displayACook++;
+                Restaurant.msg = "Hired appetizer cook number " + this.appetizerCook[i].getID();
                 c = c-1;
             }
         }
@@ -225,6 +232,7 @@ public void hireMCook(int value)
                 //System.out.println("Main Cook " + (i+1) + " was hired");
                 countMCook++;
                 displayMCook++;
+                Restaurant.msg = "Hired main cook number " + this.mainCook[i].getID();
                 c=c-1;
             }
         }
@@ -252,6 +260,7 @@ public void hireDCook(int value)
                 this.dessertCook[i].start();
                 countDCook++;
                 displayDCook++;
+                Restaurant.msg = "Hired dessert cook number " + this.dessertCook[i].getID();
                 //System.out.println("Dessert Cook " + (i+1) + " was hired");
                 c=c-1;
             }
@@ -281,6 +290,7 @@ public void hireWaiter(int value)
                 this.waiter[i].start();
                 countWaiter++;
                 displayWaiter++;
+                Restaurant.msg = "Hired waiter number " + this.waiter[i].getID();
                 //System.out.println("A Waiter was hired");
                 c=c-1;
             }
@@ -306,7 +316,7 @@ public void fireACook(int value)
                 this.appetizerCook[i].setHire(false);
                 this.appetizerCook[i] = null;
                 Restaurant.countACook--;
-                System.out.println("The appetizer cook you just fired will finish their last plate before leaving.");
+                Restaurant.msg = "The appetizer cook you just fired will finish their last plate before leaving.";
                 //System.out.println("An Appetizer Cook was fired");
                 c=c-1;
             }
@@ -333,7 +343,7 @@ public void fireMCook(int value)
                 this.mainCook[i].setHire(false);
                 this.mainCook[i] = null;
                 Restaurant.countMCook--;
-                System.out.println("The main cook you just fired will finish their last plate before leaving.");
+                Restaurant.msg = "The main cook you just fired will finish their last plate before leaving.";
                 //System.out.println("A Main Cook was fired");
                 c=c-1;
             }
@@ -360,7 +370,7 @@ public void fireDCook(int value)
                 this.dessertCook[i].setHire(false);
                 this.dessertCook[i] = null;
                 Restaurant.countDCook--;
-                System.out.println("The dessert cook you just fired will finish their last plate before leaving.");
+                Restaurant.msg = "The dessert cook you just fired will finish their last plate before leaving.";
                 //System.out.println("A Dessert Cook was fired");
                 c=c-1;
             }
@@ -386,7 +396,7 @@ public void fireWaiter(int value)
                 this.waiter[i].setHire(false);
                 this.waiter[i] = null;
                 Restaurant.countWaiter--;
-                System.out.println("The waiter you just fired will finish assembling the last order they started before leaving.");
+                Restaurant.msg = "The waiter you just fired will finish assembling the last order they started before leaving.";
                 //System.out.println("A Waiter was fired");
                 c=c-1;
             }
@@ -423,6 +433,14 @@ public void fireWaiter(int value)
         return this.manager;
     }
 
+    public static String Message(){
+        return Restaurant.msg;
+    }
+    
+    public static void resetMessage(){
+        Restaurant.msg = "";
+    }
+    
 //METHODS TO ADD AND REMOVE DISHES
     public static void addAppetizer(){
         Restaurant.aCount++;

@@ -51,6 +51,7 @@ public class WaiterChief extends Thread{
                 if(this.counter > 0){
                     this.counter--;
                     Restaurant.countdown = this.counter;
+                    Restaurant.resetMessage();
                 } else {
                     resetCounter();
                     Restaurant.countdown = this.counter;

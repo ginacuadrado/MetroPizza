@@ -79,6 +79,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         chiefStatus = new javax.swing.JLabel();
         managerStatus = new javax.swing.JLabel();
+        messageBox = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -417,6 +418,11 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(managerStatus);
         managerStatus.setBounds(570, 440, 170, 30);
 
+        messageBox.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        messageBox.setText("Message");
+        getContentPane().add(messageBox);
+        messageBox.setBounds(14, 530, 970, 30);
+
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
         jLabel28.setBounds(-120, 190, 1120, 470);
@@ -551,6 +557,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel managerStatus;
+    private javax.swing.JLabel messageBox;
     private javax.swing.JLabel numberACooks;
     private javax.swing.JLabel numberADishes;
     private javax.swing.JLabel numberDCooks;
@@ -624,4 +631,9 @@ public class InitialView extends javax.swing.JFrame {
     public JLabel getManagerStatus() {
         return managerStatus;
     }
+
+    public JLabel getMessageBox() {
+        return messageBox;
+    }
+    
 }

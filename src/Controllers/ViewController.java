@@ -27,6 +27,7 @@ public void run()
             this.view.getNumberADishes().setText(Integer.toString(Restaurant.aCount));
             this.view.getNumberMDishes().setText(Integer.toString(Restaurant.mCount));
             this.view.getNumberDDishes().setText(Integer.toString(Restaurant.dCount));
+            this.view.getNumberOrders().setText(Integer.toString(Restaurant.orderCount));
         }
         
 }

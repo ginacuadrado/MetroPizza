@@ -74,6 +74,7 @@ public class InitialView extends javax.swing.JFrame {
         numberMDishes = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         numberDDishes = new javax.swing.JLabel();
+        numberOrders = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -385,6 +386,12 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(numberDDishes);
         numberDDishes.setBounds(320, 470, 40, 30);
 
+        numberOrders.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        numberOrders.setForeground(new java.awt.Color(255, 0, 51));
+        numberOrders.setText("99999999");
+        getContentPane().add(numberOrders);
+        numberOrders.setBounds(790, 270, 80, 30);
+
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
         jLabel28.setBounds(-120, 190, 1120, 470);
@@ -521,6 +528,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel numberDDishes;
     private javax.swing.JLabel numberMCooks;
     private javax.swing.JLabel numberMDishes;
+    private javax.swing.JLabel numberOrders;
     private javax.swing.JLabel numberWaiters;
     // End of variables declaration//GEN-END:variables
 
@@ -568,5 +576,7 @@ public class InitialView extends javax.swing.JFrame {
         return numberMDishes;
     }
 
-
+    public JLabel getNumberOrders() {
+        return numberOrders;
+    }
 }

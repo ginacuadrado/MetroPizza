@@ -28,6 +28,9 @@ public void run()
             this.view.getNumberMDishes().setText(Integer.toString(Restaurant.mCount));
             this.view.getNumberDDishes().setText(Integer.toString(Restaurant.dCount));
             this.view.getNumberOrders().setText(Integer.toString(Restaurant.orderCount));
+            this.view.getHourScale().setText("1 HOUR LASTS " + Integer.toString(Restaurant.hourSeconds) + " SECONDS");
+            this.view.getDayHours().setText(Integer.toString(Restaurant.countdown) + " HOURS");
+            this.view.getChiefStatus().setText(this.view.res.getChief().getStatus());
         }
         
 }

@@ -1,6 +1,6 @@
 {
 
-	"daySeconds" : "30",
+	"daySeconds" : "10",
 	"maxAppetizer" : "20",
 	"maxMain" : "30",
 	"maxDessert" : "10",

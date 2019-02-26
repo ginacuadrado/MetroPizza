@@ -12,10 +12,13 @@ public class Restaurant
     private static Table aTable,dTable,mTable;
     
     //Semaphores needed for mutual exclusivity, cooks (by type) and waiters
-    private static Semaphore semAC, semMC, semDC, semWA, semWM, semWD, semMEA, semMEM, semMED, semMEWA, semMEWM, semMEWD;
+    private static Semaphore semAC, semMC, semDC, semWA, semWM, semWD, semMEA, semMEM, semMED, semMEWA, semMEWM, semMEWD, semMEC;
     
-    //Day time in seconds
-    private long hourSeconds;
+    //Hour time in seconds
+    public static int hourSeconds;
+    
+    //Counter for hours to close time
+    public static int countdown;
     
     //Maximum number of dishes in each table
     private int maxAppetizer,maxMain,maxDessert;
@@ -50,6 +53,9 @@ public class Restaurant
     private DessertCook[] dessertCook;
     private Waiter[] waiter;
     
+    //Waiter Cheif
+    private WaiterChief chief;
+    
     //JSON Controller
     public JSONController json = new JSONController();
     
@@ -58,10 +64,14 @@ public class Restaurant
     {
         
         //COUNTERS
-          this.countACook=0;
-          this.countDCook=0;
-          this.countMCook=0;
-          this.countWaiter=0;
+          this.countACook = 0;
+          this.countDCook = 0;
+          this.countMCook = 0;
+          this.countWaiter = 0;
+          this.countdown = 12;
+          
+        //Assigning hour duration
+        this.hourSeconds = this.json.daySeconds;
         
         //TABLES
             //Initializing JSON Values for the table
@@ -102,6 +112,7 @@ public class Restaurant
             this.semMEWA = new Semaphore(1);
             this.semMEWM = new Semaphore(1);
             this.semMEWD = new Semaphore(1);
+            this.semMEC = new Semaphore(1);
         
         //INITIALIZING COOKS' SEMAPHORES
             this.semAC = new Semaphore(this.maxAppetizer);
@@ -118,6 +129,11 @@ public class Restaurant
             this.mainCook = new MainCook[this.maxMCook];
             this.dessertCook = new DessertCook[this.maxDCook];
             this.waiter = new Waiter[this.maxWaiter];
+            
+        //Initializing Waiter Cheif
+            int chieftime = this.hourSeconds * 50;
+            this.chief = new WaiterChief(this.countdown, chieftime, this.semMEC);
+            this.chief.start();
             
             //Hire initial number of Appetizers Cooks wanted in the restaurant
             for(int init=0; init < initACook; init++)
@@ -150,7 +166,7 @@ public class Restaurant
 public void hireACook(int value)
 {
     int c = value;  //Number of cooks that need to be hired (optional if we need to hire more than one cook at a time)
-       
+    int time = this.hourSeconds * 250;   //Time it takes to produce an appetizer, expressed in miliseconds
     //Validation for maximum of Appetizer Cooks that can be hired
     if(countACook==maxACook)
     {
@@ -162,7 +178,7 @@ public void hireACook(int value)
         {
             if((this.appetizerCook[i] == null) && c > 0)
             {
-                this.appetizerCook[i]= new AppetizerCook(this.aTable, 1000, this.semMEA, this.semAC, this.semWA);
+                this.appetizerCook[i]= new AppetizerCook(this.aTable, time, this.semMEA, this.semAC, this.semWA);
                 this.appetizerCook[i].setID(i + 1);
                 this.appetizerCook[i].setHire(true);
                 this.appetizerCook[i].start();
@@ -178,7 +194,7 @@ public void hireACook(int value)
 public void hireMCook(int value)
 {
     int c = value;  //Number of cooks that need to be hired (optional if we need to hire more than one cook at a time)
-
+    int time = this.hourSeconds * 330; //Time it takes to produce a main dish, expressed in miliseconds
     if(countMCook==maxMCook)//Validation for maximum of Main Cooks that can be hired
     {
         showMessageDialog(null,"You can't hire any more Main Cooks");
@@ -189,7 +205,7 @@ public void hireMCook(int value)
         {
             if((this.mainCook[i] == null) && c > 0)
             {
-                this.mainCook[i] = new MainCook(this.mTable, 1000, this.semMEM, this.semMC, this.semWM);
+                this.mainCook[i] = new MainCook(this.mTable, time, this.semMEM, this.semMC, this.semWM);
                 this.mainCook[i].setID(i + 1);
                 this.mainCook[i].setHire(true);
                 this.mainCook[i].start();
@@ -205,7 +221,7 @@ public void hireMCook(int value)
 public void hireDCook(int value)
 {
     int c = value;  //Number of cooks that need to be hired (optional if we need to hire more than one cook at a time)
-    
+    int time = this.hourSeconds * 300; //Time it takes to produce a dessert, expressed in miliseconds
     if(countDCook==maxDCook)//Validation for maximum of Dessert Cooks that can be hired 
     {
         showMessageDialog(null,"You can't hire any more Dessert Cooks");
@@ -216,7 +232,7 @@ public void hireDCook(int value)
         {
             if((this.dessertCook[i] == null) && c > 0)
             {
-                this.dessertCook[i] = new DessertCook(this.dTable, 1000, this.semMED, this.semDC, this.semWD);
+                this.dessertCook[i] = new DessertCook(this.dTable, time, this.semMED, this.semDC, this.semWD);
                 this.dessertCook[i].setID(i + 1);
                 this.dessertCook[i].setHire(true);
                 this.dessertCook[i].start();
@@ -232,7 +248,7 @@ public void hireDCook(int value)
 public void hireWaiter(int value)
 {
     int c = value;  //Number of waiters that need to be hired (optional if we need to hire more than one waiter at a time)
-     
+    int time = this.hourSeconds * 150; //Time it takes to assemble an order, expressed in miliseconds
     if(countWaiter==maxWaiter)//Validation for maximum of Waiters that can be hired
     {
         showMessageDialog(null,"You can't hire any more Waiter");
@@ -244,7 +260,7 @@ public void hireWaiter(int value)
         {
             if((this.waiter[i] == null) && c > 0)
             {
-                this.waiter[i] = new Waiter(this.aTable, this.mTable, this.dTable, 1000, this.semMEWA, this.semMEWM, this.semMEWD, this.semWA, this.semWM, this.semWD, this.semAC, this.semMC, this.semDC);
+                this.waiter[i] = new Waiter(this.aTable, this.mTable, this.dTable, time, this.semMEWA, this.semMEWM, this.semMEWD, this.semWA, this.semWM, this.semWD, this.semAC, this.semMC, this.semDC);
                 this.waiter[i].setHire(true);
                 this.waiter[i].setID(i + 1);
                 this.waiter[i].start();
@@ -377,6 +393,10 @@ public void fireWaiter(int value)
     public int getCountWaiter() 
     {
         return countWaiter;
+    }
+    
+    public WaiterChief getChief(){
+        return this.chief;
     }
 
 //METHODS TO ADD AND REMOVE DISHES

@@ -31,7 +31,6 @@ public class InitialView extends javax.swing.JFrame {
         TimeLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -75,6 +74,10 @@ public class InitialView extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         numberDDishes = new javax.swing.JLabel();
         numberOrders = new javax.swing.JLabel();
+        dayHours = new javax.swing.JLabel();
+        hourScale = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        chiefStatus = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -86,7 +89,6 @@ public class InitialView extends javax.swing.JFrame {
         setIconImages(null);
         setLocation(new java.awt.Point(250, 250));
         setMinimumSize(new java.awt.Dimension(1000, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -117,10 +119,6 @@ public class InitialView extends javax.swing.JFrame {
         jLabel6.setBounds(280, 10, 450, 170);
         getContentPane().add(jLabel5);
         jLabel5.setBounds(630, 90, 0, 0);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(-90, -100, 690, 300);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PizzaIcon.png"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -392,6 +390,27 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(numberOrders);
         numberOrders.setBounds(790, 270, 80, 30);
 
+        dayHours.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        dayHours.setForeground(new java.awt.Color(255, 255, 255));
+        dayHours.setText("jLabel1");
+        getContentPane().add(dayHours);
+        dayHours.setBounds(100, 90, 110, 30);
+
+        hourScale.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        hourScale.setForeground(new java.awt.Color(255, 255, 255));
+        hourScale.setText("Hour scale");
+        getContentPane().add(hourScale);
+        hourScale.setBounds(40, 130, 210, 30);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(-90, -100, 690, 300);
+
+        chiefStatus.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        chiefStatus.setText("Status");
+        getContentPane().add(chiefStatus);
+        chiefStatus.setBounds(800, 440, 170, 30);
+
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
         jLabel28.setBounds(-120, 190, 1120, 470);
@@ -491,6 +510,9 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel TimeLabel;
     private javax.swing.JButton WaiterFire;
     private javax.swing.JButton WaiterHire;
+    private javax.swing.JLabel chiefStatus;
+    private javax.swing.JLabel dayHours;
+    private javax.swing.JLabel hourScale;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
@@ -579,4 +601,18 @@ public class InitialView extends javax.swing.JFrame {
     public JLabel getNumberOrders() {
         return numberOrders;
     }
+
+    public JLabel getHourScale() {
+        return hourScale;
+    }
+
+    public JLabel getDayHours() {
+        return dayHours;
+    }
+
+    public JLabel getChiefStatus() {
+        return chiefStatus;
+    }
+    
+    
 }

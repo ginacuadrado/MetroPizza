@@ -24,7 +24,6 @@ public void run()
             this.view.getNumberDCooks().setText(Integer.toString(this.view.res.getCountDCook()));
             this.view.getNumberMCooks().setText(Integer.toString(this.view.res.getCountMCook()));
             this.view.getNumberWaiters().setText(Integer.toString(this.view.res.getCountWaiter()));
-           
         }
         
 }

@@ -82,8 +82,6 @@ public class InitialView extends javax.swing.JFrame {
         setFocusCycleRoot(false);
         setIconImages(null);
         setLocation(new java.awt.Point(250, 250));
-        setMaximumSize(new java.awt.Dimension(1200, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         getContentPane().setLayout(null);
 
         jLabel39.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N

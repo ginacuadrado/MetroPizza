@@ -119,32 +119,6 @@ public class Restaurant
             this.dessertCook = new DessertCook[this.maxDCook];
             this.waiter = new Waiter[this.maxWaiter];
             
-            //Initializing array with Appetizer Cooks
-            for(int init=0; init < maxACook; init++)
-            {
-                this.appetizerCook[init]= new AppetizerCook(this.aTable, 1000, this.semMEA, this.semAC, this.semWA);
-                this.appetizerCook[init].setID(init);
-                System.out.println("Apptizer cook " + init + " initialized");
-            }
-            
-            //Initializing array with Main Cooks
-            for(int init=0; init < maxMCook; init++)
-            {
-                this.mainCook[init]= new MainCook();
-            }
-            
-            //Initializing array with Dessert Cooks
-            for(int init=0; init < maxDCook; init++)
-            {
-                this.dessertCook[init]= new DessertCook();
-            }
-            
-            //Initializing array with Waiters
-            for(int init=0; init <maxWaiter; init++)
-            {
-                this.waiter[init]= new Waiter();
-            }
-            
             //Hire initial number of Appetizers Cooks wanted in the restaurant
             for(int init=0; init < initACook; init++)
             {
@@ -152,23 +126,22 @@ public class Restaurant
             }
             
             //Hire initial number of Main Cooks wanted in the restaurant
-            for(int init=0; init <initMCook; init++)
+            for(int init=0; init < initMCook; init++)
             {
                 hireMCook(1);
             }
             
             //Hire initial number of Desserts Cooks wanted in the restaurant
-            for(int init=0; init <initDCook; init++)
+            for(int init=0; init < initDCook; init++)
             {
                 hireDCook(1);
             }
             
             //Hire initial number of Waiters wanted in the restaurant
-            for(int init=0; init <initWaiter; init++)
+            for(int init=0; init < initWaiter; init++)
             {
                 hireWaiter(1);
-            }
-            
+            }    
     }
   
 //M E T H O D S
@@ -187,11 +160,13 @@ public void hireACook(int value)
     {
         for(int i=0; i < this.maxACook; i++)//Hiring a new Appetizer Cook for the restaurant
         {
-            if(!(this.appetizerCook[i].isHire()) && c > 0)
+            if((this.appetizerCook[i] == null) && c > 0)
             {
+                this.appetizerCook[i]= new AppetizerCook(this.aTable, 1000, this.semMEA, this.semAC, this.semWA);
+                this.appetizerCook[i].setID(i + 1);
                 this.appetizerCook[i].setHire(true);
                 this.appetizerCook[i].start();
-                System.out.println("Appetizer Cook " + i + " was hired");
+                System.out.println("Appetizer Cook " + (i+1) + " was hired");
                 countACook++;
                 c = c-1;
             }
@@ -212,10 +187,13 @@ public void hireMCook(int value)
     {    
         for(int i=0; i<this.maxMCook; i++)//Hiring a new Main Cook for the restaurant
         {
-            if(!this.mainCook[i].isHire() && c > 0)
+            if((this.mainCook[i] == null) && c > 0)
             {
+                this.mainCook[i] = new MainCook(this.mTable, 1000, this.semMEM, this.semMC, this.semWM);
+                this.mainCook[i].setID(i + 1);
                 this.mainCook[i].setHire(true);
-                System.out.println("A Main Cook was hired");
+                this.mainCook[i].start();
+                System.out.println("Main Cook " + (i+1) + " was hired");
                 countMCook++;
                 c=c-1;
             }
@@ -236,11 +214,14 @@ public void hireDCook(int value)
     {
         for(int i=0; i<this.maxDCook; i++)//Hiring a new Dessert Cook for the restaurant
         {
-            if(!this.dessertCook[i].isHire() && c > 0)
+            if((this.dessertCook[i] == null) && c > 0)
             {
+                this.dessertCook[i] = new DessertCook(this.dTable, 1000, this.semMED, this.semDC, this.semWD);
+                this.dessertCook[i].setID(i + 1);
                 this.dessertCook[i].setHire(true);
+                this.dessertCook[i].start();
                 countDCook++;
-                System.out.println("A Dessert Cook was hired");
+                System.out.println("Dessert Cook " + (i+1) + " was hired");
                 c=c-1;
             }
         }
@@ -261,8 +242,9 @@ public void hireWaiter(int value)
     {   
         for(int i=0; i<this.maxWaiter; i++)//Hiring a new Waiter for the restaurant
         {
-            if(!this.waiter[i].isHire() && c > 0)
+            if((this.waiter[i] == null) && c > 0)
             {
+                this.waiter[i] = new Waiter();
                 this.waiter[i].setHire(true);
                 countWaiter++;
                 System.out.println("A Waiter was hired");
@@ -272,7 +254,7 @@ public void hireWaiter(int value)
     }
 }
 
- //FIRE A APPETIZER COOK
+ //FIRE AN APPETIZER COOK
 public void fireACook(int value)
 {
     int c = value;  //Number of waiters that need to be fired (optional if we need to fire more than one cook at a time)
@@ -285,9 +267,10 @@ public void fireACook(int value)
     {
         for(int i=maxACook-1; i>-1; i--)//Firing a current Appetizer Cooks of the restaurant
         {
-            if(this.appetizerCook[i].isHire() && c > 0)
+            if(!(this.appetizerCook[i] == null) && c > 0)
             {
                 this.appetizerCook[i].setHire(false);
+                this.appetizerCook[i] = null;
                 System.out.println("An Appetizer Cook was fired");
                 countACook--;
                 c=c-1;
@@ -310,10 +293,10 @@ public void fireMCook(int value)
         for(int i=maxMCook-1; i>-1; i--)//Firing a current Main Cooks of the restaurant
         {
            
-            if(this.mainCook[i].isHire() && c > 0)
+            if(!(this.mainCook[i] == null) && c > 0)
             {
-                
                 this.mainCook[i].setHire(false);
+                this.mainCook[i] = null;
                 System.out.println("A Main Cook was fired");
                 countMCook--;
                 c=c-1;
@@ -336,9 +319,10 @@ public void fireDCook(int value)
        
         for(int i=maxDCook-1; i>-1; i--) //Firing a current Dessert Cook of the restaurant
         {
-            if(this.dessertCook[i].isHire() && c > 0)
+            if(!(this.dessertCook[i] == null) && c > 0)
             {
                 this.dessertCook[i].setHire(false);
+                this.dessertCook[i] = null;
                 System.out.println("A Dessert Cook was fired");
                 countDCook--;
                 c=c-1;
@@ -360,9 +344,10 @@ public void fireWaiter(int value)
     { 
         for(int i=maxWaiter-1; i>-1; i--)//Firing a current Waiter of the restaurant
         {
-            if(this.waiter[i].isHire() && c > 0)
+            if(!(this.waiter[i] == null) && c > 0)
             {
                 this.waiter[i].setHire(false);
+                this.waiter[i] = null;
                 System.out.println("A Waiter was fired");
                 countWaiter--;
                 c=c-1;
@@ -371,67 +356,49 @@ public void fireWaiter(int value)
     }   
 }
 
-//Getter of cooks and waiters
-public int getCountACook() 
-{
-    return countACook;
-}
-
-public int getCountDCook() 
-{
-    return countDCook;
-}
-
-public int getCountMCook() 
-{
-    return countMCook;
-}
-
-public int getCountWaiter() 
-{
-    return countWaiter;
-}
-
-public static void addAppetizer(){
-    Restaurant.aCount++;
-}
-
-public static void addMain(){
-    Restaurant.mCount++;
-}
-
-public static void addDessert(){
-    Restaurant.dCount++;
-}
-
-public static void removeAppetizer(){
-    Restaurant.aCount--;
-}
-
-public static void removeMain(){
-    Restaurant.mCount--;
-}
-
-public static void removeDessert(){
-    Restaurant.dCount--;
-}
-/*
-//ADD 1 APPETIZER COOK
-    public static void addACook(){
-        Restaurant.acCount++;
+//GETTERS FOR COOKS AND WAITER COUNTERS
+    public int getCountACook() 
+    {
+        return countACook;
     }
-    
-//ADD 1 MAIN DISH COOK
-    public static void addMCook(){
-        Restaurant.mcCount++;
+
+    public int getCountDCook() 
+    {
+        return countDCook;
     }
-//ADD 1 DESSERT COOK
-    public static void addDCook(){
-        Restaurant.dcCount++;
+
+    public int getCountMCook() 
+    {
+        return countMCook;
     }
-    
-//ADD 1 WAITER
-    public static void addWaiter(){
-        Restaurant.wCount++;
-    }*/
+
+    public int getCountWaiter() 
+    {
+        return countWaiter;
+    }
+
+//METHODS TO ADD AND REMOVE DISHES
+    public static void addAppetizer(){
+        Restaurant.aCount++;
+    }
+
+    public static void addMain(){
+        Restaurant.mCount++;
+    }
+
+    public static void addDessert(){
+        Restaurant.dCount++;
+    }
+
+    public static void removeAppetizer(){
+        Restaurant.aCount--;
+    }
+
+    public static void removeMain(){
+        Restaurant.mCount--;
+    }
+
+    public static void removeDessert(){
+        Restaurant.dCount--;
+    }
 }

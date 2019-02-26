@@ -11,16 +11,17 @@ public class DessertCook extends Thread {
     private int time;                     //Time it takes to produce a dish
     private boolean hire;                 //Indicator whether a cook is hired or not
     private Semaphore SemME, SemDC, SemW; //Mutual Exclusivity, Dessert Cook and Waiter Semaphores
+    private int id;
  
 //CLASS CONSTRUCTOR
-public DessertCook(/*Table table, int time, int in, Semaphore SemME, Semaphore SemDC, Semaphore SemW*/)
+public DessertCook(Table table, int time, Semaphore SemME, Semaphore SemDC, Semaphore SemW)
 {
-    /*this.table = table;
-    this.time = time;*/
+    this.table = table;
+    this.time = time;
     this.hire = false;
-    /*this.SemME = SemME;
+    this.SemME = SemME;
     this.SemDC = SemDC;
-    this.SemW = SemW;*/
+    this.SemW = SemW;
 }
 
 //GETTER AND SETTER FOR COOK STATUS
@@ -31,12 +32,21 @@ public DessertCook(/*Table table, int time, int in, Semaphore SemME, Semaphore S
     public void setHire(boolean hire) {
         this.hire = hire;
     }
+    
+    public int getID(){
+        return this.id;
+    }
+    
+    public void setID(int i){
+        this.id = i;
+    }
 
 //DEFINITION OF THREAD RUN METHOD
     @Override
     public void run(){
        while(this.hire){
             try{
+                System.out.println("Dessert cook number " + this.id + " is cooking");
                 this.SemDC.acquire();
                 
                 //Wait the set amount of time before producing a plate
@@ -49,6 +59,8 @@ public DessertCook(/*Table table, int time, int in, Semaphore SemME, Semaphore S
                 this.table.setPlate(Restaurant.inDesserts, 1);
                 Restaurant.inDesserts = (Restaurant.inDesserts + 1) % this.table.getMax();
                 Restaurant.addDessert();
+                
+                System.out.println(Restaurant.dCount);
                 
                 this.SemW.release();
                 this.SemME.release();

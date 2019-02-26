@@ -42,7 +42,7 @@ public class Restaurant
     public static int inAppetizers,outAppetizers,inMain,outMain,inDesserts,outDesserts;
     
     //Employee Counters 
-    private int countACook, countDCook, countMCook, countWaiter;
+    public static int countACook, countDCook, countMCook, countWaiter;
     
     //Order counter
     public static int orderCount;
@@ -290,7 +290,6 @@ public void fireACook(int value)
                 this.appetizerCook[i].setHire(false);
                 this.appetizerCook[i] = null;
                 //System.out.println("An Appetizer Cook was fired");
-                countACook--;
                 c=c-1;
             }
         } 
@@ -315,8 +314,7 @@ public void fireMCook(int value)
             {
                 this.mainCook[i].setHire(false);
                 this.mainCook[i] = null;
-                System.out.println("A Main Cook was fired");
-                countMCook--;
+                //System.out.println("A Main Cook was fired");
                 c=c-1;
             }
         }  
@@ -341,8 +339,7 @@ public void fireDCook(int value)
             {
                 this.dessertCook[i].setHire(false);
                 this.dessertCook[i] = null;
-                System.out.println("A Dessert Cook was fired");
-                countDCook--;
+                //System.out.println("A Dessert Cook was fired");
                 c=c-1;
             }
         }
@@ -366,8 +363,7 @@ public void fireWaiter(int value)
             {
                 this.waiter[i].setHire(false);
                 this.waiter[i] = null;
-                System.out.println("A Waiter was fired");
-                countWaiter--;
+                //System.out.println("A Waiter was fired");
                 c=c-1;
             }
         }

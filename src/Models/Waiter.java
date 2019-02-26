@@ -99,6 +99,10 @@ public class Waiter extends Thread{
                //Waiter adds order to order count
                Restaurant.addOrder();
                
+               //If a waiter is fired, reflect this after they finish they last order they started assembling
+               if(!this.hire){
+                   Restaurant.countWaiter--;
+               }
            } catch(InterruptedException ex) {
                Logger.getLogger(AppetizerCook.class.getName()).log(Level.SEVERE, null, ex);
                Logger.getLogger(DessertCook.class.getName()).log(Level.SEVERE, null, ex);

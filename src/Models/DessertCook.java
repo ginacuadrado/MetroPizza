@@ -64,6 +64,11 @@ public DessertCook(Table table, int time, Semaphore SemME, Semaphore SemDC, Sema
                 
                 this.SemW.release();
                 this.SemME.release();
+                
+                //If a dessert cook is fired, reflect this after the finish the last dessert they started producing
+                if(!this.hire){
+                    Restaurant.countDCook--;
+                }
             } catch(InterruptedException ex) {
                 Logger.getLogger(DessertCook.class.getName()).log(Level.SEVERE, null, ex);
             }

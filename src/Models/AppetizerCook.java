@@ -63,6 +63,12 @@ public AppetizerCook(Table table, int time, Semaphore SemME, Semaphore SemAC, Se
                 
                 this.SemW.release();
                 this.SemME.release();
+                
+                //If an appetizer cook is fired, reflect this after the finish the last appetizer they started producing
+                if(!this.hire){
+                    Restaurant.countACook--;
+                }
+                
             } catch(InterruptedException ex) {
                 Logger.getLogger(AppetizerCook.class.getName()).log(Level.SEVERE, null, ex);
             }

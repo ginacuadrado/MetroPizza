@@ -82,8 +82,7 @@ public class InitialView extends javax.swing.JFrame {
         setFocusCycleRoot(false);
         setIconImages(null);
         setLocation(new java.awt.Point(250, 250));
-        setMaximumSize(new java.awt.Dimension(1200, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
+        setMinimumSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -100,7 +99,7 @@ public class InitialView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Close);
-        Close.setBounds(950, 10, 40, 41);
+        Close.setBounds(950, 10, 40, 30);
 
         TimeLabel.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         TimeLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -367,7 +366,7 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
-        jLabel28.setBounds(-120, 190, 1120, 470);
+        jLabel28.setBounds(-120, 190, 1120, 380);
 
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
@@ -383,32 +382,32 @@ public class InitialView extends javax.swing.JFrame {
     }//GEN-LAST:event_AppetFire1ActionPerformed
 
     private void AppetHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetHireActionPerformed
-      this.res.hireACook(1);
+        this.res.hireACook(1);
     }//GEN-LAST:event_AppetHireActionPerformed
 
     private void MainHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainHireActionPerformed
-       this.res.hireMCook(1);
+        this.res.hireMCook(1);
     }//GEN-LAST:event_MainHireActionPerformed
 
     private void MainFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainFireActionPerformed
-       this.res.fireMCook(1);
+        this.res.fireMCook(1);
     }//GEN-LAST:event_MainFireActionPerformed
 
     private void DessertHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertHireActionPerformed
-       this.res.hireDCook(1);
+        this.res.hireDCook(1);
    
     }//GEN-LAST:event_DessertHireActionPerformed
 
     private void DessertFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DessertFireActionPerformed
-      this.res.fireDCook(1);
+        this.res.fireDCook(1);
     }//GEN-LAST:event_DessertFireActionPerformed
 
     private void WaiterHireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaiterHireActionPerformed
-       this.res.hireWaiter(1);
+        this.res.hireWaiter(1);
     }//GEN-LAST:event_WaiterHireActionPerformed
 
     private void WaiterFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WaiterFireActionPerformed
-       this.res.fireWaiter(1);
+        this.res.fireWaiter(1);
     }//GEN-LAST:event_WaiterFireActionPerformed
 
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed

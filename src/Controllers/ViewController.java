@@ -31,6 +31,7 @@ public void run()
             this.view.getHourScale().setText("1 HOUR LASTS " + Integer.toString(Restaurant.hourSeconds) + " SECONDS");
             this.view.getDayHours().setText(Integer.toString(Restaurant.countdown) + " HOURS");
             this.view.getChiefStatus().setText(this.view.res.getChief().getStatus());
+            this.view.getManagerStatus().setText(this.view.res.getManager().getStatus());
         }
         
 }

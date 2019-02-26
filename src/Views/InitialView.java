@@ -78,6 +78,7 @@ public class InitialView extends javax.swing.JFrame {
         hourScale = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         chiefStatus = new javax.swing.JLabel();
+        managerStatus = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -95,7 +96,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel39.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel39.setText("Current Status:");
         getContentPane().add(jLabel39);
-        jLabel39.setBounds(800, 410, 120, 30);
+        jLabel39.setBounds(830, 410, 120, 30);
 
         Close.setForeground(new java.awt.Color(255, 51, 51));
         Close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ExitIcon.png"))); // NOI18N
@@ -142,11 +143,11 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WaiterChiefIcon.png"))); // NOI18N
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(740, 340, 50, 210);
+        jLabel10.setBounds(770, 340, 50, 210);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ManagerIcon.png"))); // NOI18N
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(530, 320, 50, 240);
+        jLabel11.setBounds(510, 320, 50, 240);
 
         jLabel25.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel25.setText("Number of Appetizer Cooks: ");
@@ -165,7 +166,7 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(720, 340, 10, 170);
+        jLabel20.setBounds(750, 340, 10, 170);
         getContentPane().add(ACooks);
         ACooks.setBounds(540, 396, 50, 30);
 
@@ -270,12 +271,12 @@ public class InitialView extends javax.swing.JFrame {
         jLabel37.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         jLabel37.setText("CHIEF WAITER");
         getContentPane().add(jLabel37);
-        jLabel37.setBounds(770, 350, 150, 60);
+        jLabel37.setBounds(800, 350, 150, 60);
 
         jLabel45.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel45.setText("Current Status:");
         getContentPane().add(jLabel45);
-        jLabel45.setBounds(590, 410, 120, 30);
+        jLabel45.setBounds(570, 410, 120, 30);
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         jLabel23.setMaximumSize(new java.awt.Dimension(628, 200));
@@ -286,7 +287,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel44.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         jLabel44.setText("MANAGER");
         getContentPane().add(jLabel44);
-        jLabel44.setBounds(560, 350, 110, 60);
+        jLabel44.setBounds(580, 350, 110, 60);
 
         WaiterHire.setBackground(new java.awt.Color(255, 204, 0));
         WaiterHire.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
@@ -392,7 +393,7 @@ public class InitialView extends javax.swing.JFrame {
 
         dayHours.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         dayHours.setForeground(new java.awt.Color(255, 255, 255));
-        dayHours.setText("jLabel1");
+        dayHours.setText("Time");
         getContentPane().add(dayHours);
         dayHours.setBounds(100, 90, 110, 30);
 
@@ -409,7 +410,12 @@ public class InitialView extends javax.swing.JFrame {
         chiefStatus.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         chiefStatus.setText("Status");
         getContentPane().add(chiefStatus);
-        chiefStatus.setBounds(800, 440, 170, 30);
+        chiefStatus.setBounds(830, 440, 170, 30);
+
+        managerStatus.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        managerStatus.setText("Status");
+        getContentPane().add(managerStatus);
+        managerStatus.setBounds(570, 440, 170, 30);
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
@@ -544,6 +550,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel managerStatus;
     private javax.swing.JLabel numberACooks;
     private javax.swing.JLabel numberADishes;
     private javax.swing.JLabel numberDCooks;
@@ -613,6 +620,8 @@ public class InitialView extends javax.swing.JFrame {
     public JLabel getChiefStatus() {
         return chiefStatus;
     }
-    
-    
+
+    public JLabel getManagerStatus() {
+        return managerStatus;
+    }
 }

@@ -42,10 +42,10 @@ public class Restaurant
     public static int inAppetizers,outAppetizers,inMain,outMain,inDesserts,outDesserts;
     
     //Employee Counters 
-    public static int countACook, countDCook, countMCook, countWaiter;
+    public static int countACook, countDCook, countMCook, countWaiter, displayACook, displayMCook, displayDCook, displayWaiter;
     
     //Order counter
-    public static int orderCount;
+    public static int orderCount, total, sales, price, day;
           
     //Declaration of an Array for keeping track of hired employees 
     private AppetizerCook[] appetizerCook;
@@ -55,6 +55,9 @@ public class Restaurant
     
     //Waiter Cheif
     private WaiterChief chief;
+    
+    //Manager
+    private Manager manager;
     
     //JSON Controller
     public JSONController json = new JSONController();
@@ -68,7 +71,11 @@ public class Restaurant
           this.countDCook = 0;
           this.countMCook = 0;
           this.countWaiter = 0;
-          this.countdown = 12;
+          this.displayACook = 0;
+          this.displayDCook = 0;
+          this.displayMCook = 0;
+          this.displayWaiter = 0;
+          this.countdown = 10;
           
         //Assigning hour duration
         this.hourSeconds = this.json.daySeconds;
@@ -131,9 +138,14 @@ public class Restaurant
             this.waiter = new Waiter[this.maxWaiter];
             
         //Initializing Waiter Cheif
-            int chieftime = this.hourSeconds * 50;
-            this.chief = new WaiterChief(this.countdown, chieftime, this.semMEC);
+            int calctime = this.hourSeconds * 50;
+            this.chief = new WaiterChief(this.countdown, calctime, this.semMEC);
             this.chief.start();
+            
+        //Initializing Manager
+            calctime = this.hourSeconds * 100;
+            this.manager = new Manager (calctime, this.semMEC);
+            this.manager.start();
             
             //Hire initial number of Appetizers Cooks wanted in the restaurant
             for(int init=0; init < initACook; init++)
@@ -184,6 +196,7 @@ public void hireACook(int value)
                 this.appetizerCook[i].start();
                 //System.out.println("Appetizer Cook " + (i+1) + " was hired");
                 countACook++;
+                displayACook++;
                 c = c-1;
             }
         }
@@ -211,6 +224,7 @@ public void hireMCook(int value)
                 this.mainCook[i].start();
                 //System.out.println("Main Cook " + (i+1) + " was hired");
                 countMCook++;
+                displayMCook++;
                 c=c-1;
             }
         }
@@ -237,6 +251,7 @@ public void hireDCook(int value)
                 this.dessertCook[i].setHire(true);
                 this.dessertCook[i].start();
                 countDCook++;
+                displayDCook++;
                 //System.out.println("Dessert Cook " + (i+1) + " was hired");
                 c=c-1;
             }
@@ -265,6 +280,7 @@ public void hireWaiter(int value)
                 this.waiter[i].setID(i + 1);
                 this.waiter[i].start();
                 countWaiter++;
+                displayWaiter++;
                 //System.out.println("A Waiter was hired");
                 c=c-1;
             }
@@ -289,6 +305,8 @@ public void fireACook(int value)
             {
                 this.appetizerCook[i].setHire(false);
                 this.appetizerCook[i] = null;
+                Restaurant.countACook--;
+                System.out.println("The appetizer cook you just fired will finish their last plate before leaving.");
                 //System.out.println("An Appetizer Cook was fired");
                 c=c-1;
             }
@@ -314,6 +332,8 @@ public void fireMCook(int value)
             {
                 this.mainCook[i].setHire(false);
                 this.mainCook[i] = null;
+                Restaurant.countMCook--;
+                System.out.println("The main cook you just fired will finish their last plate before leaving.");
                 //System.out.println("A Main Cook was fired");
                 c=c-1;
             }
@@ -339,6 +359,8 @@ public void fireDCook(int value)
             {
                 this.dessertCook[i].setHire(false);
                 this.dessertCook[i] = null;
+                Restaurant.countDCook--;
+                System.out.println("The dessert cook you just fired will finish their last plate before leaving.");
                 //System.out.println("A Dessert Cook was fired");
                 c=c-1;
             }
@@ -363,6 +385,8 @@ public void fireWaiter(int value)
             {
                 this.waiter[i].setHire(false);
                 this.waiter[i] = null;
+                Restaurant.countWaiter--;
+                System.out.println("The waiter you just fired will finish assembling the last order they started before leaving.");
                 //System.out.println("A Waiter was fired");
                 c=c-1;
             }
@@ -373,26 +397,30 @@ public void fireWaiter(int value)
 //GETTERS FOR COOKS AND WAITER COUNTERS
     public int getCountACook() 
     {
-        return countACook;
+        return displayACook;
     }
 
     public int getCountDCook() 
     {
-        return countDCook;
+        return displayDCook;
     }
 
     public int getCountMCook() 
     {
-        return countMCook;
+        return displayMCook;
     }
 
     public int getCountWaiter() 
     {
-        return countWaiter;
+        return displayWaiter;
     }
     
     public WaiterChief getChief(){
         return this.chief;
+    }
+    
+    public Manager getManager(){
+        return this.manager;
     }
 
 //METHODS TO ADD AND REMOVE DISHES

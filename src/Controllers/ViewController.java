@@ -34,8 +34,5 @@ public void run()
             this.view.getManagerStatus().setText(this.view.res.getManager().getStatus());
             this.view.getMessageBox().setText(this.view.res.Message());
         }
-        
-}
-        
-           
+    }          
 }

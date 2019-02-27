@@ -94,7 +94,7 @@ public class InitialView extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
         setIconImages(null);
-        setLocation(new java.awt.Point(150, 150));
+        setLocation(new java.awt.Point(50, 50));
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setName("Metropizza"); // NOI18N
         setUndecorated(true);
@@ -449,6 +449,16 @@ public class InitialView extends javax.swing.JFrame {
         managerStatus.setText("Status");
         getContentPane().add(managerStatus);
         managerStatus.setBounds(570, 440, 170, 30);
+
+        messageBox.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        messageBox.setText("Message");
+        getContentPane().add(messageBox);
+        messageBox.setBounds(160, 530, 830, 30);
+
+        jLabel1.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel1.setText("Information:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 530, 100, 30);
 
         messageBox.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         messageBox.setText("Message");

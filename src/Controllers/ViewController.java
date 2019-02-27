@@ -32,6 +32,8 @@ public void run()
             this.view.getDayHours().setText(Integer.toString(Restaurant.countdown) + " HOURS");
             this.view.getChiefStatus().setText(this.view.res.getChief().getStatus());
             this.view.getManagerStatus().setText(this.view.res.getManager().getStatus());
+            this.view.getEarning().setText("EARNINGS TODAY: " + Integer.toString(this.view.res.getEarning())+ " $");
+            this.view.getDays().setText("Days Passed: " + Integer.toString(this.view.res.getDay()));
         }
         
 }

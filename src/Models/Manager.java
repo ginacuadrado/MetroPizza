@@ -51,6 +51,7 @@ public class Manager extends Thread {
                     this.clockSemaphore.release();
                     Thread.sleep(this.time1);
                 } else {
+                    
                     //If the counter equals 0, the Manager closes all orders and resets the clock
                     this.status = "CLOSING ORDERS";
                     Thread.sleep(this.time2);

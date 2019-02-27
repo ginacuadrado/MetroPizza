@@ -27,6 +27,7 @@ public class WaiterChief extends Thread{
     public static void resetCounter(){
         WaiterChief.counter = 10;
         Restaurant.day++;
+        
     }
     
     //DEFINITION OF THREAD RUN METHOD

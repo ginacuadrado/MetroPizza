@@ -76,7 +76,7 @@ public class Restaurant
           this.displayMCook = 0;
           this.displayWaiter = 0;
           this.countdown = 10;
-          
+          this.price= 11;
         //Assigning hour duration
         this.hourSeconds = this.json.daySeconds;
         
@@ -452,4 +452,23 @@ public void fireWaiter(int value)
     public static void addOrder(){
         Restaurant.orderCount++;
     }
+
+//METHOD TO COUNT ORDERS A DAY
+    public static int getEarning()
+    {
+        Restaurant.sales= Restaurant.orderCount * price;
+        return Restaurant.sales;
+    }
+
+    public static void setSales(int sales) {
+        Restaurant.sales = sales;
+    }
+
+ 
+    public static int getDay() {
+        return Restaurant.day;
+    }
+    
+    
+    
 }

@@ -28,6 +28,8 @@ public class InitialView extends javax.swing.JFrame {
 
         jLabel39 = new javax.swing.JLabel();
         Close = new javax.swing.JButton();
+        earning = new javax.swing.JLabel();
+        days = new javax.swing.JLabel();
         TimeLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -69,6 +71,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
         numberADishes = new javax.swing.JLabel();
         numberMDishes = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -99,7 +102,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel39.setBounds(830, 410, 120, 30);
 
         Close.setForeground(new java.awt.Color(255, 51, 51));
-        Close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ExitIcon.png"))); // NOI18N
+        Close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Exit.png"))); // NOI18N
         Close.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseActionPerformed(evt);
@@ -107,6 +110,18 @@ public class InitialView extends javax.swing.JFrame {
         });
         getContentPane().add(Close);
         Close.setBounds(950, 10, 40, 40);
+
+        earning.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        earning.setForeground(new java.awt.Color(255, 255, 255));
+        earning.setText("Days passed:");
+        getContentPane().add(earning);
+        earning.setBounds(720, 80, 210, 30);
+
+        days.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        days.setForeground(new java.awt.Color(255, 255, 255));
+        days.setText("Earnings today:");
+        getContentPane().add(days);
+        days.setBounds(720, 50, 210, 30);
 
         TimeLabel.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         TimeLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -274,9 +289,10 @@ public class InitialView extends javax.swing.JFrame {
         jLabel37.setBounds(800, 350, 150, 60);
 
         jLabel45.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel45.setText("Current Status:");
+        jLabel45.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel45.setText("NOTE: Each order has a value of 11 $ ");
         getContentPane().add(jLabel45);
-        jLabel45.setBounds(570, 410, 120, 30);
+        jLabel45.setBounds(590, 510, 300, 30);
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RedWineBackground.png"))); // NOI18N
         jLabel23.setMaximumSize(new java.awt.Dimension(628, 200));
@@ -361,6 +377,11 @@ public class InitialView extends javax.swing.JFrame {
         jLabel33.setText("Number of Available Appetizers:");
         getContentPane().add(jLabel33);
         jLabel33.setBounds(80, 270, 340, 30);
+
+        jLabel46.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel46.setText("Current Status:");
+        getContentPane().add(jLabel46);
+        jLabel46.setBounds(570, 410, 120, 30);
 
         numberADishes.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         numberADishes.setForeground(new java.awt.Color(255, 0, 51));
@@ -518,6 +539,8 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JButton WaiterHire;
     private javax.swing.JLabel chiefStatus;
     private javax.swing.JLabel dayHours;
+    private javax.swing.JLabel days;
+    private javax.swing.JLabel earning;
     private javax.swing.JLabel hourScale;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -545,6 +568,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -624,4 +648,15 @@ public class InitialView extends javax.swing.JFrame {
     public JLabel getManagerStatus() {
         return managerStatus;
     }
+
+    public JLabel getEarning() {
+        return earning;
+    }
+
+    public JLabel getDays() {
+        return days;
+    }
+    
+    
+    
 }

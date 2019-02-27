@@ -90,8 +90,11 @@ public class InitialView extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
         setIconImages(null);
-        setLocation(new java.awt.Point(250, 250));
+        setLocation(new java.awt.Point(50, 50));
         setMinimumSize(new java.awt.Dimension(1000, 600));
+        setName("Metropizza"); // NOI18N
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 

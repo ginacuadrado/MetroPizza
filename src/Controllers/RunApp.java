@@ -1,3 +1,9 @@
+/*26-2-2019
+Application Developed By:
+Gina Cuadrado       Github: ginacuadrado
+Samuel Velasquez    Github: Samuel-1802
+Operative Systems
+Universidad Metropolitana de Caracas*/
 
 package Controllers;
 

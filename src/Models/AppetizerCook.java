@@ -46,7 +46,6 @@ public AppetizerCook(Table table, int time, Semaphore SemME, Semaphore SemAC, Se
     public void run(){
        while(this.hire){
             try{
-                //System.out.println("Appetizer cook number " + this.id + " is cooking");
                 this.SemAC.acquire();
                 //Wait the set amount of time before producing a plate
                 Thread.sleep(this.time);
@@ -58,8 +57,6 @@ public AppetizerCook(Table table, int time, Semaphore SemME, Semaphore SemAC, Se
                 this.table.setPlate(Restaurant.inAppetizers, 1);
                 Restaurant.inAppetizers = (Restaurant.inAppetizers + 1) % this.table.getMax();
                 Restaurant.addAppetizer();
-                
-                //System.out.println(Restaurant.aCount);
                 
                 this.SemW.release();
                 this.SemME.release();

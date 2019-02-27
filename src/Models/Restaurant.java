@@ -201,7 +201,6 @@ public void hireACook(int value)
                 this.appetizerCook[i].setID(i + 1);
                 this.appetizerCook[i].setHire(true);
                 this.appetizerCook[i].start();
-                //System.out.println("Appetizer Cook " + (i+1) + " was hired");
                 countACook++;
                 displayACook++;
                 Restaurant.msg = "Hired appetizer cook number " + this.appetizerCook[i].getID();
@@ -230,7 +229,6 @@ public void hireMCook(int value)
                 this.mainCook[i].setID(i + 1);
                 this.mainCook[i].setHire(true);
                 this.mainCook[i].start();
-                //System.out.println("Main Cook " + (i+1) + " was hired");
                 countMCook++;
                 displayMCook++;
                 Restaurant.msg = "Hired main cook number " + this.mainCook[i].getID();
@@ -262,7 +260,6 @@ public void hireDCook(int value)
                 countDCook++;
                 displayDCook++;
                 Restaurant.msg = "Hired dessert cook number " + this.dessertCook[i].getID();
-                //System.out.println("Dessert Cook " + (i+1) + " was hired");
                 c=c-1;
             }
         }
@@ -292,7 +289,6 @@ public void hireWaiter(int value)
                 countWaiter++;
                 displayWaiter++;
                 Restaurant.msg = "Hired waiter number " + this.waiter[i].getID();
-                //System.out.println("A Waiter was hired");
                 c=c-1;
             }
         } 
@@ -318,7 +314,6 @@ public void fireACook(int value)
                 this.appetizerCook[i] = null;
                 Restaurant.countACook--;
                 Restaurant.msg = "The appetizer cook you just fired will finish their last plate before leaving.";
-                //System.out.println("An Appetizer Cook was fired");
                 c=c-1;
             }
         } 
@@ -345,7 +340,6 @@ public void fireMCook(int value)
                 this.mainCook[i] = null;
                 Restaurant.countMCook--;
                 Restaurant.msg = "The main cook you just fired will finish their last plate before leaving.";
-                //System.out.println("A Main Cook was fired");
                 c=c-1;
             }
         }  
@@ -372,7 +366,6 @@ public void fireDCook(int value)
                 this.dessertCook[i] = null;
                 Restaurant.countDCook--;
                 Restaurant.msg = "The dessert cook you just fired will finish their last plate before leaving.";
-                //System.out.println("A Dessert Cook was fired");
                 c=c-1;
             }
         }
@@ -398,7 +391,6 @@ public void fireWaiter(int value)
                 this.waiter[i] = null;
                 Restaurant.countWaiter--;
                 Restaurant.msg = "The waiter you just fired will finish assembling the last order they started before leaving.";
-                //System.out.println("A Waiter was fired");
                 c=c-1;
             }
         }

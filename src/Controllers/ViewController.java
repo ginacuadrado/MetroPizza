@@ -33,10 +33,9 @@ public void run()
             this.view.getChiefStatus().setText(this.view.res.getChief().getStatus());
             this.view.getManagerStatus().setText(this.view.res.getManager().getStatus());
             this.view.getEarning().setText("EARNINGS TODAY: " + Integer.toString(this.view.res.getEarning())+ " $");
-            this.view.getDays().setText("Days Passed: " + Integer.toString(this.view.res.getDay()));
+            this.view.getDays().setText("DAYS PASSED: " + Integer.toString(this.view.res.getDay()));
+            this.view.getMessageBox().setText(this.view.res.Message());
+            this.view.getTotal().setText("TOTAL ORDERS: " + Integer.toString(this.view.res.getTotal()));
         }
-        
-}
-        
-           
+    }          
 }

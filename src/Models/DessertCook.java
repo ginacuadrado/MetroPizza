@@ -46,7 +46,6 @@ public DessertCook(Table table, int time, Semaphore SemME, Semaphore SemDC, Sema
     public void run(){
        while(this.hire){
             try{
-                //System.out.println("Dessert cook number " + this.id + " is cooking");
                 this.SemDC.acquire();
                 
                 //Wait the set amount of time before producing a plate
@@ -59,8 +58,6 @@ public DessertCook(Table table, int time, Semaphore SemME, Semaphore SemDC, Sema
                 this.table.setPlate(Restaurant.inDesserts, 1);
                 Restaurant.inDesserts = (Restaurant.inDesserts + 1) % this.table.getMax();
                 Restaurant.addDessert();
-                
-                //System.out.println(Restaurant.dCount);
                 
                 this.SemW.release();
                 this.SemME.release();

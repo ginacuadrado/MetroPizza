@@ -29,6 +29,7 @@ public class InitialView extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         Close = new javax.swing.JButton();
         earning = new javax.swing.JLabel();
+        total = new javax.swing.JLabel();
         days = new javax.swing.JLabel();
         TimeLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -82,6 +83,8 @@ public class InitialView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         chiefStatus = new javax.swing.JLabel();
         managerStatus = new javax.swing.JLabel();
+        messageBox = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -91,8 +94,11 @@ public class InitialView extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
         setIconImages(null);
-        setLocation(new java.awt.Point(250, 250));
+        setLocation(new java.awt.Point(150, 150));
         setMinimumSize(new java.awt.Dimension(1000, 600));
+        setName("Metropizza"); // NOI18N
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -113,13 +119,19 @@ public class InitialView extends javax.swing.JFrame {
 
         earning.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         earning.setForeground(new java.awt.Color(255, 255, 255));
-        earning.setText("Days passed:");
+        earning.setText("Earning");
         getContentPane().add(earning);
-        earning.setBounds(720, 80, 210, 30);
+        earning.setBounds(720, 90, 210, 30);
+
+        total.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        total.setForeground(new java.awt.Color(255, 255, 255));
+        total.setText("Total Orders");
+        getContentPane().add(total);
+        total.setBounds(720, 130, 210, 30);
 
         days.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         days.setForeground(new java.awt.Color(255, 255, 255));
-        days.setText("Earnings today:");
+        days.setText("Days");
         getContentPane().add(days);
         days.setBounds(720, 50, 210, 30);
 
@@ -438,6 +450,16 @@ public class InitialView extends javax.swing.JFrame {
         getContentPane().add(managerStatus);
         managerStatus.setBounds(570, 440, 170, 30);
 
+        messageBox.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        messageBox.setText("Message");
+        getContentPane().add(messageBox);
+        messageBox.setBounds(160, 530, 830, 30);
+
+        jLabel1.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel1.setText("Information:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 530, 100, 30);
+
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
         jLabel28.setBounds(-120, 190, 1120, 470);
@@ -542,6 +564,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel days;
     private javax.swing.JLabel earning;
     private javax.swing.JLabel hourScale;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
@@ -575,6 +598,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel managerStatus;
+    private javax.swing.JLabel messageBox;
     private javax.swing.JLabel numberACooks;
     private javax.swing.JLabel numberADishes;
     private javax.swing.JLabel numberDCooks;
@@ -583,6 +607,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel numberMDishes;
     private javax.swing.JLabel numberOrders;
     private javax.swing.JLabel numberWaiters;
+    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 
     public JLabel getNumberACooks() {
@@ -649,6 +674,9 @@ public class InitialView extends javax.swing.JFrame {
         return managerStatus;
     }
 
+    public JLabel getMessageBox() {
+        return messageBox;
+    }
     public JLabel getEarning() {
         return earning;
     }
@@ -656,6 +684,11 @@ public class InitialView extends javax.swing.JFrame {
     public JLabel getDays() {
         return days;
     }
+
+    public JLabel getTotal() {
+        return total;
+    }
+    
     
     
     

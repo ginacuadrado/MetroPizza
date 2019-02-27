@@ -44,9 +44,8 @@ public class Manager extends Thread {
                 
                 if(Restaurant.countdown > 0){
                     //If the clock is different from 0, the manager goes rest
-                    System.out.println("The manager checked the clock and will rest now.");
+                    Restaurant.msg = "The manager checked the clock and will rest now";
                     this.time1 = (int) (1000 * Restaurant.hourSeconds * (0.45 + new Random().nextFloat() * (2 - 0.45)));
-                    System.out.println(this.time1);
                     this.status = "RESTING";
                     this.clockSemaphore.release();
                     Thread.sleep(this.time1);
@@ -57,7 +56,8 @@ public class Manager extends Thread {
                     Thread.sleep(this.time2);
                     Restaurant.total = Restaurant.total + Restaurant.orderCount;
                     Restaurant.sales = Restaurant.price * Restaurant.total;
-                    Restaurant.countdown = 12;
+                    Restaurant.orderCount = 0;
+                    Restaurant.countdown = Restaurant.initcd;
                     WaiterChief.resetCounter();
                     this.clockSemaphore.release();
                 }

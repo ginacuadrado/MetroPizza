@@ -11,6 +11,9 @@ public class Restaurant
     //Buffer for appetizers, desserts, main dishes.
     private static Table aTable,dTable,mTable;
     
+    //Display message for useful information on view
+    public static String msg;
+    
     //Semaphores needed for mutual exclusivity, cooks (by type) and waiters
     private static Semaphore semAC, semMC, semDC, semWA, semWM, semWD, semMEA, semMEM, semMED, semMEWA, semMEWM, semMEWD, semMEC;
     
@@ -45,7 +48,7 @@ public class Restaurant
     public static int countACook, countDCook, countMCook, countWaiter, displayACook, displayMCook, displayDCook, displayWaiter;
     
     //Order counter
-    public static int orderCount, total, sales, price, day;
+    public static int orderCount, total, sales, price, day, initcd;
           
     //Declaration of an Array for keeping track of hired employees 
     private AppetizerCook[] appetizerCook;
@@ -75,8 +78,16 @@ public class Restaurant
           this.displayDCook = 0;
           this.displayMCook = 0;
           this.displayWaiter = 0;
-          this.countdown = 10;
-          this.price= 11;
+          this.initcd = 10;
+          this.total = 0;
+          this.sales = 0;
+          this.price = 20;
+          this.day = 0;
+          this.countdown = this.initcd;
+          
+        //DEFAULT EMPTY MESSAGE
+          this.msg = "";
+          
         //Assigning hour duration
         this.hourSeconds = this.json.daySeconds;
         
@@ -194,9 +205,9 @@ public void hireACook(int value)
                 this.appetizerCook[i].setID(i + 1);
                 this.appetizerCook[i].setHire(true);
                 this.appetizerCook[i].start();
-                //System.out.println("Appetizer Cook " + (i+1) + " was hired");
                 countACook++;
                 displayACook++;
+                Restaurant.msg = "Hired appetizer cook number " + this.appetizerCook[i].getID();
                 c = c-1;
             }
         }
@@ -222,9 +233,9 @@ public void hireMCook(int value)
                 this.mainCook[i].setID(i + 1);
                 this.mainCook[i].setHire(true);
                 this.mainCook[i].start();
-                //System.out.println("Main Cook " + (i+1) + " was hired");
                 countMCook++;
                 displayMCook++;
+                Restaurant.msg = "Hired main cook number " + this.mainCook[i].getID();
                 c=c-1;
             }
         }
@@ -252,7 +263,7 @@ public void hireDCook(int value)
                 this.dessertCook[i].start();
                 countDCook++;
                 displayDCook++;
-                //System.out.println("Dessert Cook " + (i+1) + " was hired");
+                Restaurant.msg = "Hired dessert cook number " + this.dessertCook[i].getID();
                 c=c-1;
             }
         }
@@ -281,7 +292,7 @@ public void hireWaiter(int value)
                 this.waiter[i].start();
                 countWaiter++;
                 displayWaiter++;
-                //System.out.println("A Waiter was hired");
+                Restaurant.msg = "Hired waiter number " + this.waiter[i].getID();
                 c=c-1;
             }
         } 
@@ -306,8 +317,7 @@ public void fireACook(int value)
                 this.appetizerCook[i].setHire(false);
                 this.appetizerCook[i] = null;
                 Restaurant.countACook--;
-                System.out.println("The appetizer cook you just fired will finish their last plate before leaving.");
-                //System.out.println("An Appetizer Cook was fired");
+                Restaurant.msg = "The appetizer cook you just fired will finish their last plate before leaving.";
                 c=c-1;
             }
         } 
@@ -333,8 +343,7 @@ public void fireMCook(int value)
                 this.mainCook[i].setHire(false);
                 this.mainCook[i] = null;
                 Restaurant.countMCook--;
-                System.out.println("The main cook you just fired will finish their last plate before leaving.");
-                //System.out.println("A Main Cook was fired");
+                Restaurant.msg = "The main cook you just fired will finish their last plate before leaving.";
                 c=c-1;
             }
         }  
@@ -360,8 +369,7 @@ public void fireDCook(int value)
                 this.dessertCook[i].setHire(false);
                 this.dessertCook[i] = null;
                 Restaurant.countDCook--;
-                System.out.println("The dessert cook you just fired will finish their last plate before leaving.");
-                //System.out.println("A Dessert Cook was fired");
+                Restaurant.msg = "The dessert cook you just fired will finish their last plate before leaving.";
                 c=c-1;
             }
         }
@@ -386,8 +394,7 @@ public void fireWaiter(int value)
                 this.waiter[i].setHire(false);
                 this.waiter[i] = null;
                 Restaurant.countWaiter--;
-                System.out.println("The waiter you just fired will finish assembling the last order they started before leaving.");
-                //System.out.println("A Waiter was fired");
+                Restaurant.msg = "The waiter you just fired will finish assembling the last order they started before leaving.";
                 c=c-1;
             }
         }
@@ -423,6 +430,14 @@ public void fireWaiter(int value)
         return this.manager;
     }
 
+    public static String Message(){
+        return Restaurant.msg;
+    }
+    
+    public static void resetMessage(){
+        Restaurant.msg = "";
+    }
+    
 //METHODS TO ADD AND REMOVE DISHES
     public static void addAppetizer(){
         Restaurant.aCount++;
@@ -467,6 +482,10 @@ public void fireWaiter(int value)
  
     public static int getDay() {
         return Restaurant.day;
+    }
+
+    public static int getTotal() {
+        return Restaurant.total;
     }
     
     

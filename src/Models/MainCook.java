@@ -46,7 +46,6 @@ public MainCook(Table table, int time, Semaphore SemME, Semaphore SemMC, Semapho
     public void run(){
        while(this.hire){
             try{
-                //System.out.println("Main cook number " + this.id + " is cooking");
                 this.SemMC.acquire();
                 
                 //Wait the set amount of time before producing a plate
@@ -59,8 +58,6 @@ public MainCook(Table table, int time, Semaphore SemME, Semaphore SemMC, Semapho
                 this.table.setPlate(Restaurant.inMain, 1);
                 Restaurant.inMain = (Restaurant.inMain + 1) % this.table.getMax();
                 Restaurant.addMain();
-                
-                //System.out.println(Restaurant.mCount);
                 
                 this.SemW.release();
                 this.SemME.release();

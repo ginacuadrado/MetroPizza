@@ -79,6 +79,10 @@ public class Restaurant
           this.displayMCook = 0;
           this.displayWaiter = 0;
           this.initcd = 10;
+          this.total = 0;
+          this.sales = 0;
+          this.price = 20;
+          this.day = 0;
           this.countdown = this.initcd;
           
         //DEFAULT EMPTY MESSAGE

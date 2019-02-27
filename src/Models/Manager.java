@@ -59,6 +59,7 @@ public class Manager extends Thread {
                     Restaurant.orderCount = 0;
                     Restaurant.countdown = Restaurant.initcd;
                     WaiterChief.resetCounter();
+                    Restaurant.msg = "The manager has closed all pending orders, earnings received";
                     this.clockSemaphore.release();
                 }
                 

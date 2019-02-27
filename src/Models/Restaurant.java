@@ -468,26 +468,12 @@ public void fireWaiter(int value)
         Restaurant.orderCount++;
     }
 
-//METHOD TO COUNT ORDERS A DAY
-    public static int getEarning()
-    {
-        Restaurant.sales= Restaurant.orderCount * price;
-        return Restaurant.sales;
-    }
-
-    public static void setSales(int sales) {
-        Restaurant.sales = sales;
-    }
-
- 
+//METHOD TO COUNT ORDERS A DAY 
     public static int getDay() {
         return Restaurant.day;
     }
 
     public static int getTotal() {
         return Restaurant.total;
-    }
-    
-    
-    
+    }    
 }

@@ -48,7 +48,7 @@ public class Restaurant
     public static int countACook, countDCook, countMCook, countWaiter, displayACook, displayMCook, displayDCook, displayWaiter;
     
     //Order counter
-    public static int orderCount, total, sales, price, day;
+    public static int orderCount, total, sales, price, day, initcd;
           
     //Declaration of an Array for keeping track of hired employees 
     private AppetizerCook[] appetizerCook;
@@ -78,7 +78,8 @@ public class Restaurant
           this.displayDCook = 0;
           this.displayMCook = 0;
           this.displayWaiter = 0;
-          this.countdown = 10;
+          this.initcd = 10;
+          this.countdown = this.initcd;
           
         //DEFAULT EMPTY MESSAGE
           this.msg = "";

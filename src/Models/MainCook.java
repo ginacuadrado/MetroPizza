@@ -68,7 +68,6 @@ public MainCook(Table table, int time, Semaphore SemME, Semaphore SemMC, Semapho
                 //If a main cook is fired, reflect this after the finish the last main dish they started producing
                 if(!this.hire){
                     Restaurant.displayMCook--;
-                    Restaurant.resetMessage();
                 }
             } catch(InterruptedException ex) {
                 Logger.getLogger(MainCook.class.getName()).log(Level.SEVERE, null, ex);

@@ -56,7 +56,7 @@ public class Manager extends Thread {
                     Thread.sleep(this.time2);
                     Restaurant.total = Restaurant.total + Restaurant.orderCount;
                     Restaurant.sales = Restaurant.price * Restaurant.total;
-                    Restaurant.countdown = 12;
+                    Restaurant.countdown = Restaurant.initcd;
                     WaiterChief.resetCounter();
                     this.clockSemaphore.release();
                 }

@@ -80,6 +80,7 @@ public class InitialView extends javax.swing.JFrame {
         chiefStatus = new javax.swing.JLabel();
         managerStatus = new javax.swing.JLabel();
         messageBox = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -421,7 +422,12 @@ public class InitialView extends javax.swing.JFrame {
         messageBox.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         messageBox.setText("Message");
         getContentPane().add(messageBox);
-        messageBox.setBounds(14, 530, 970, 30);
+        messageBox.setBounds(160, 530, 830, 30);
+
+        jLabel1.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel1.setText("Information:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 530, 100, 30);
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhiteBackground.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
@@ -525,6 +531,7 @@ public class InitialView extends javax.swing.JFrame {
     private javax.swing.JLabel chiefStatus;
     private javax.swing.JLabel dayHours;
     private javax.swing.JLabel hourScale;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;

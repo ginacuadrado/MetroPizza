@@ -25,7 +25,7 @@ public class WaiterChief extends Thread{
     
     //RESET HOUR COUNTER
     public static void resetCounter(){
-        WaiterChief.counter = 10;
+        WaiterChief.counter = Restaurant.initcd;
         Restaurant.day++;
     }
     
